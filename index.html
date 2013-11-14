@@ -2,10 +2,10 @@
 <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <title>Leaflet Map1</title>
-        <link rel="stylesheet" href="/leaflet.css" />
-        <script type="text/javascript" src="js/leaflet.js"></script>
+        <link rel="stylesheet" href="leaflet/leaflet.css" />
+        <script type="text/javascript" src="leaflet/leaflet.js"></script>
         <link rel="stylesheet" type="text/css" href="leaflet-openweathermap.css" />
-        <script type="text/javascript" src="js/leaflet-openweathermap.js"></script>
+        <script type="text/javascript" src="leaflet/leaflet-openweathermap.js"></script>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <script type='text/javascript'>
 
         <!-- Set map center to Metro Manila at zoom level 10 using OSM Default tile -->         
-        var map = new L.Map('map', {center: new L.LatLng(14.6146, 121.0081), zoom: 10});
+        var map = new L.Map('map', {center: new L.LatLng(-7, 110), zoom: 10});
         var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
         map.addLayer(osm);

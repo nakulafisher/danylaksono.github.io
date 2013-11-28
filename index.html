@@ -14,7 +14,7 @@
     <link href="dist/css/bootstrap.css" rel="stylesheet">
 	<link href="theme.css" rel="stylesheet">
     <!-- Custom Fonts for bootstrap from fontawesome.io -->
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -42,66 +42,82 @@
         <div class="collapse navbar-collapse pull-right">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#invitation">Invitation</a></li>
+            <li><a href="#ceremony">Ceremony</a></li>
+			<li><a href="#venue">Venue</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
    <!-- start: header -->
-<div class="header-wrap">
-    <header class="clearfix">
-
-        <div class="img-circle">
-
-            <img class="decore-top" src="assets/img/decor-1.png" alt=""/>
-
-            <h1>Mary & Troy</h1>
-            <h3>Are Getting Married</h3>
-            <h4>On November, Saturday, 21, 2014</h4>
-
-            <img class="decore-bottom" src="assets/img/decor-3.png" alt=""/>
-
-        </div>
-        <!--<img class="logo" src="assets/img/logo3.png">-->
-
-
-    </header>
-</div>
+	<div class="header-wrap">
+		<header class="container">
+			<div class="img-circle">
+				<img class="decore-top" src="/img/decor-1.png" alt=""/>
+				<h1>H1Heading1</h1>
+				<h3>H3Heading3</h3>
+				<h4>H4Heading4</h4>
+				<img class="decore-bottom" src="assets/img/decor-3.png" alt=""/>
+			</div>
+			<!--<img class="logo" src="assets/img/logo3.png">-->
+		</header>
+	</div>
 <!-- end: header -->
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
 
-      <hr>
+<!-- Invitation-->
+	<div class="about-us" id="invitation">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-6">
+			  <h2>Heading</h2>
+			  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+			  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-6">
+			  <h2>Heading</h2>
+			  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+			  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+		   </div>
+		  </div>
+		</div>  
+	</div>
 
-      <footer>
-        <p>&copy; Dany Laksono 2013</p>
-      </footer>
-    </div> <!-- /container -->
+	<div class="wedding" id="where">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+				<div id="map" class="map"></div>
+			 </div>
+				<div class="span12 center">
+					<h2> Centro de Novas Tecnolox?as de Galicia</h2>
+					<h4>R?a Airas Nunes, s/n - Conxo</h4>
+<h4>15702 - Santiago de Compostela </h4>
+<h4>A Coru?a</h4>
+				</div>                     
+			</div>
+		</div>
+	</div>
+
+			
+			
+			
+
+			
+<!-- Footer -->
+<div class="container">
+    <footer>
+        <hr>
+		<p>&copy; Dany Laksono 2013</p>
+    </footer>
+</div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="map.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
   </body>
 </html>

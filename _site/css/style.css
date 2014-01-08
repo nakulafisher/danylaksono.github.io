@@ -28,12 +28,9 @@
 */
 @import url('font-awesome.min.css');
 @import url('animate.css');
-/*
-@import url(http://fonts.googleapis.com/css?family=Alex+Brush&subset=latin,latin-ext);
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700);
-@import url(http://fonts.googleapis.com/css?family=Rokkitt);
+@import url(http://fonts.googleapis.com/css?family=Tangerine);
 @import url(http://fonts.googleapis.com/css?family=Cantora+One);
-
+/*
  @font-face{
 	font-family: 'Homestead';
 	src: url('../font/Homestead-Display.ttf');
@@ -45,12 +42,12 @@
 	==================
 */
 body{
-	min-height: 2000px;
+	width: 100%;
+	height: 100%;
 	background: #fff;
-	margin: 0;
 	padding-top: 51px;
-	font-family: 'Rokkitt', serif;
 	font-size: 16px;
+	
 }
 
 .no-resize{
@@ -98,197 +95,28 @@ body{
 */
 
 .navbar-nav.navbar-right:last-child {
-margin-right: 30px;
+	margin-right: 30px;
 }
-
-/*
-.navbar-header {
-  min-height: 65px;
-  padding-right: 20px;
-  padding-left: 20px;
-  background: url(../img/bg.png) repeat top center;
-  border: 1px solid #d4d4d4;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
-  *zoom: 1;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-  text-align:center;
-}
-
-.navbar .logo{
-	font-family: 'Alex Brush', cursive;
-	font-size: 48px;
-	display: block;
-	float: left;
-	margin-left: -10px;
-	color: #fff; 
-	transition: color 0.3s ease-in-out;
-	-o-transition: color 0.3s ease-in-out;
-	-webkit-transition: color 0.3s ease-in-out;
-	-moz-transition: color 0.3s ease-in-out;
-	text-decoration: none;
-	text-align: center;
-	padding: 25px 10px 10px;
-}
-
-.navbar .logo:hover,
-.navbar .logo:focus{
-	text-decoration: none;
-	color: #b1d95c;
-}
-
 .navbar-header .navbar-brand {
-  font-family: 'Cantora one';
-  display: block;
-  float: left;
-  padding: 25px 20px 10px;
-  margin-left: -20px;
-  font-size: 32px;
-  font-weight: 200;
-  color: #ffffff ; 
-  text-shadow: 0 1px 0 #fff;
-  transition: color 0.3s ease-in-out;
-  -o-transition: color 0.3s ease-in-out;
-  -webkit-transition: color 0.3s ease-in-out;
-  -moz-transition: color 0.3s ease-in-out;
+	font-family: Tangerine;
+	font-size:2.25em;
 }
-
-.navbar-header .navbar-brand:hover,
-.navbar-header .navbar-brand:focus {
-  text-decoration: none;
-  color: #b1d95c;
-}
-
-.navbar-text {
-  margin-bottom: 0;
-  margin-top: 10px;
-  line-height: 40px;
-  color: #777;
-}
-
-.navbar-link {
-  color: #999;
-  transition: color 0.3s ease-in-out;
-  -o-transition: color 0.3s ease-in-out;
-  -webkit-transition: color 0.3s ease-in-out;
-  -moz-transition: color 0.3s ease-in-out;
-  
-}
-
-.navbar-link:hover,
-.navbar-link:focus  {
-	color: #188BCD 
-}
-/*
-.navbar-nav {
-  font-family: 'Cantora one';
-  font-size: 20px;
-  left: 0;
-  display: block;
-  /*float: right;     Toolbar rata kanan 
-  margin: 0 10px 0 0;
-}
-
-.navbar-nav,
-.navbar-nav > li > a {
-  float:none; 
-  display:inline-block;
-  *display:inline; /* ie7 fix 
-  *zoom:1; /* hasLayout ie7 trigger 
-  vertical-align: top;
-}
-
-.navbar-nav > li > a {
-  float: none;
-  padding: 25px 25px 20px;
-  color: #fff;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #ffffff;
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  -o-transition: color 0.3s ease-in-out,-o-box-shadow 0.3s ease-in-out;
-  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
-  -moz-transition: color 0.3s ease-in-out, -moz-box-shadow 0.3s ease-in-out;
-}
-
-.navbar-nav > li > a:focus,
-.navbar-nav > li > a:hover {
-  color: #b1d95c;
-  text-decoration: none;
-  background-color: transparent;
-  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-     -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-          box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-  transition: box-shadow 0.3s ease-in-out;
-  -o-transition: box-shadow 0.3s ease-in-out, -o-box-shadow 0.3s ease-in-out;
-  -webkit-transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
-  -moz-transition: box-shadow 0.3s ease-in-out, -moz-box-shadow 0.3s ease-in-out;
-}
-
-.navbar-nav > .active > a,
-.navbar-nav > .active > a:hover,
-.navbar-nav > .active > a:focus {
-  color: #a4c956;
-  text-decoration: none;
-  background-color: transparent;
-  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-     -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-          box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-		  outline: none;
-}
-
-*/
 /*
 	============
 	[4. HOME]
 	============
 */
-#home{
+#home {
 	background-color:#fff;
-	background:url(../img/wedding1.jpg)  no-repeat fixed center center transparent;
-	background-size: 100% 100%;
+	background:url(../img/wedding1.jpg) no-repeat fixed center center transparent;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
 	height: 780px;
+	width: 100%;
+	display:table;
 	padding: 40px 0 50px;
 	
-}
-
-
-#home h1{
-	font-family: 'Alex Brush', cursive;
-	font-weight: normal;
-	font-size: 85px;
-	line-height:85px;
-	color: #fff;
-	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
-	filter: dropshadow(color=rgba(0, 0, 0, 0.5), offx=1, offy=1);
-	text-align: center;
-	padding: 100px 0 50px;
-	margin: 0;
-}
-
-#home h2{
-	font-family: 'Cantora One';
-	font-size: 120px;
-	line-height: 122px;
-	color: #a4c956;
-	text-shadow:  8px 7px 0px rgba(0, 0, 0, 0.3);
-	filter: dropshadow(color=rgba(0,0,0, 0.3), offx=8, offy=7);
-	text-align: center;
-	padding-top: 30px;
-}
-
-#home h3{
-	font-family: 'Playfair Display SC', serif;
-	font-size: 18px;
-	line-height: 20px;
-	color: #272727;
-	text-align: center;
-	text-transform: capitalize;
-	font-weight: 400;
-	letter-spacing: 5px;
 }
 
 #home .line{
@@ -316,44 +144,16 @@ margin-right: 30px;
 	top: 10px;
 }
 
-
-#home h4{
-	font-family: 'Playfair Display SC', serif;
-	font-size: 16px;
-	line-height: 20px;
-	color: #272727;
-	text-align: center;
-	text-transform: capitalize;
-	font-weight: 400;
-	letter-spacing: 8px;
-}
-
-#home h5{
-	font-family: 'Rokkitt', serif;
-	font-size: 30px;
-	line-height: 34px;
-	color: #fff;
-	text-align: center;
-	text-transform: capitalize;
-	font-weight: 400;
-	width: 250px;
-	background: #272727;
-	margin: 20px auto 0;
-	padding: 10px 15px;
-	border-radius: 4px;
-	letter-spacing: 4px;
-}
-
-#home .bubble-wrap {
+#home .bubble-wrap{
   position: absolute;
-  top: 150px;
+  top: 30%;
   left: 7%;
   padding: 30px;
   width: 350px;
   height: 350px;
   -webkit-border-radius: 350px;
   -moz-border-radius: 350px;
-  border-radius: 350px;
+  border-radius: 75px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -381,8 +181,11 @@ margin-right: 30px;
   color: #ffffff;
 }
 #home .bubble-wrap h1 {
-  font-size: 30px;
+  font-family: 'Tangerine';
+  /*color:#F09022; */
+  font-size: 36px;
   padding: 0 0;
+  text-align: center;
 }
 @media (max-width: 640px) {
 #home .bubble-wrap h1 {
@@ -394,8 +197,9 @@ margin-right: 30px;
   padding: 15px 0;
   font-size: 18px;
   margin-bottom: 20px;
-  width: 400px;
-  margin-left: -25px;
+  width: auto;
+  margin-left: 0;
+  text-align: center;
 }
 @media (max-width: 640px) {
 #home .bubble-wrap h3 {
@@ -408,7 +212,7 @@ margin-right: 30px;
 }
 #home .bubble-wrap h4 {
   font-size: 18px;
-  margin-bottom: 60px;
+  text-align: center;
 }
 @media (max-width: 640px) {
 #home .bubble-wrap h4 {
@@ -442,7 +246,7 @@ margin-right: 30px;
 }
 /*
 	==============
-	[5. ABOUT]
+	[5. Mempelai]
 	==============
 */
 
@@ -509,7 +313,7 @@ margin-right: 30px;
 */
 #ceremony{
 	background-color:#fff;
-	background:url(../img/wedding2.jpg)  no-repeat fixed center center transparent;
+	background:url(../img/bg5.jpg)  repeat fixed center center transparent; /* ganti background lebih simple */
 	background-size: 100% 100%;
 	height: 800px;
 	padding: 40px 0;
@@ -686,7 +490,7 @@ margin-right: 30px;
 */
 #contact{
 	background-color:#fff;
-	background:url(../img/wedding3.png)  no-repeat fixed center center transparent;
+	background:url(../img/bg4.jpg)  repeat fixed center center transparent;
 	background-size: 100% 100%;
 	height: 750px;
 	padding: 40px 0;

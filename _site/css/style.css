@@ -4,20 +4,10 @@
 	****************************************
 	
 	Made with love by Dany Laksono
+	January 2014
 	
 	Modified from Marytroy and ditinggalrabi
 	
-	TABLE OF CONTENTS
-	1. IMPORT FONTS
-	2. GLOBAL STYLE
-	3. NAVBAR
-	4. HOME
-	5. ABOUT
-	6. CEREMONY
-	7. PHOTOS
-	8. CONTACT
-	9. RESPONSIVE
-
 */
 
 
@@ -29,7 +19,8 @@
 @import url('font-awesome.min.css');
 @import url('animate.css');
 @import url(http://fonts.googleapis.com/css?family=Tangerine);
-@import url(http://fonts.googleapis.com/css?family=Cantora+One);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 /*
  @font-face{
 	font-family: 'Homestead';
@@ -46,7 +37,7 @@ body{
 	height: 100%;
 	background: #fff;
 	padding-top: 51px;
-	font-size: 16px;
+	font-size: 14px;
 	
 }
 
@@ -96,16 +87,20 @@ body{
 
 .navbar-nav.navbar-right:last-child {
 	margin-right: 30px;
+	font-family:ubuntu;
+	font-size:1.2em;
 }
 .navbar-header .navbar-brand {
 	font-family: Tangerine;
 	font-size:2.25em;
 }
+
 /*
 	============
 	[4. HOME]
 	============
 */
+
 #home {
 	background-color:#fff;
 	background:url(../img/wedding1.jpg) no-repeat fixed center center transparent;
@@ -148,7 +143,7 @@ body{
   position: absolute;
   top: 30%;
   left: 7%;
-  padding: 30px;
+  padding: 20px;
   width: 350px;
   height: 350px;
   -webkit-border-radius: 350px;
@@ -176,31 +171,52 @@ body{
 }
 
 #home .bubble-wrap h1,
-#home .bubble-wrap h3,
 #home .bubble-wrap h4 {
   color: #ffffff;
 }
-#home .bubble-wrap h1 {
+#home .bubble-wrap h1
+ {
   font-family: 'Tangerine';
   /*color:#F09022; */
-  font-size: 36px;
-  padding: 0 0;
-  text-align: center;
+  font-size: 3em;
+ text-align: center;
+ text-shadow: black 0.1em 0.1em 0.2em
 }
 @media (max-width: 640px) {
 #home .bubble-wrap h1 {
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-bottom: -20;
+    margin-top: -20;
   }
 }
+
+#home .bubble-wrap h1 span  {
+  font-size: 1em;
+  display:inline;
+  
+}
+
+#home .bubble-wrap h2
+ {
+  font-family: 'Ubuntu';
+  font-size: 1em;
+  padding: -10 -10;
+  text-align: center;
+  margin-bottom: -20;
+  margin-top: -20;
+  color: white;
+  
+}
+
 #home .bubble-wrap h3 {
-  padding: 15px 0;
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-family:Roboto Condensed;
+  padding: 0 0;
+  color:white;
+  font-size: 1.2em;
+  margin-bottom: 5px;
   width: auto;
   margin-left: 0;
   text-align: center;
-}
+  }
 @media (max-width: 640px) {
 #home .bubble-wrap h3 {
     background: none;
@@ -250,19 +266,19 @@ body{
 	==============
 */
 
-#about{
+#undangan{
 	background-color: #fff;
 	background: url(../img/bg.png);
-	font-family: 'Rokkitt', serif;
-	font-size: 16px;
+	font-family: 'Roboto Condensed';
+	font-size: 1.2em;
 	line-height: 24px;
-	color: #888;
-	font-weight: 300;
+	color: #ffffff;
+	/*font-weight: 300;*/
 	padding: 50px 0; 
 	position:relative;
 }
 
-#about:before {
+#undangan:before {
 	content: "";
 	width: 100%;
 	position: absolute;
@@ -271,7 +287,7 @@ body{
 	background: url(../img/line.png);
 }
 
-#about:after{
+#undangan:after{
 	content: "";
 	width: 100%;
 	position: absolute;
@@ -280,15 +296,13 @@ body{
 	background: url(../img/line.png);
 } 
 
-#about div.container{
+#undangan div.container{
 	text-align: center;
 }
 
-#about blockquote{
-	text-align: left;
-}
 
-#about h2{
+
+#undangan h2{
 	font-family: 'Alex Brush', cursive;
 	font-size: 85px;
 	line-height:85px;
@@ -300,27 +314,39 @@ body{
 	margin: 0;
 }
 
-#about .img img{
+#undangan .decor{
 	display: block;
-	margin: 0 auto;
+	max-width: 200px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:30px;
+}
+
+#undangan .picture{
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	vertical-align:middle;
 }
 
 
-/*
-	================
-	[6. CEREMONY]
-	================
-*/
-#ceremony{
+/*-------------------------------------------
+				Resepsi
+  ------------------------------------------- */
+  
+  
+#resepsi{
 	background-color:#fff;
 	background:url(../img/bg5.jpg)  repeat fixed center center transparent; /* ganti background lebih simple */
 	background-size: 100% 100%;
-	height: 800px;
+	height: 600px;
 	padding: 40px 0;
 	position:relative;
 }
 
-#ceremony:after{
+#resepsi:after{
 	content: "";
 	width: 100%;
 	position: absolute;
@@ -329,7 +355,7 @@ body{
 	background: url(../img/line.png);
 }
 
-#ceremony h1{
+#resepsi h1{
 	font-family: 'Alex Brush', cursive;
 	font-weight: normal;
 	font-size: 85px;
@@ -342,34 +368,18 @@ body{
 	margin: 0;
 }
 
-#ceremony h2{
-	font-family: 'Cantora One';
-	font-size: 120px;
-	line-height: 122px;
-	color: #a4c956;
-	text-shadow:  8px 7px 0px rgba(0, 0, 0, 0.3);
-	filter: dropshadow(color=rgba(0,0,0, 0.3), offx=8, offy=7);
-	text-align: center;
-	padding-top: 30px;
-}
+#resepsi blocktext {
+	margin-left: auto;
+    margin-right: auto;
+    width: 6em
+	}
 
-#ceremony h3{
-	font-family: 'Playfair Display SC', serif;
-	font-size: 18px;
-	line-height: 20px;
-	color: #272727;
-	text-align: center;
-	text-transform: capitalize;
-	font-weight: 400;
-	letter-spacing: 5px;
-}
-
-#ceremony .line{
+#resepsi .line{
 	position: relative;
 	margin: 13px auto 0;
 }
 
-#ceremony .line:before{
+#resepsi .line:before{
 	content: "";
 	width: 320px;
 	height: 2px;
@@ -379,7 +389,7 @@ body{
 	top: 10px;
 }
 
-#ceremony .line:after{
+#resepsi .line:after{
 	content: "";
 	width: 320px;
 	height: 2px;
@@ -390,42 +400,13 @@ body{
 }
 
 
-#ceremony h4{
-	font-family: 'Playfair Display SC', serif;
-	font-size: 16px;
-	line-height: 20px;
-	color: #272727;
-	text-align: center;
-	text-transform: capitalize;
-	font-weight: 400;
-	letter-spacing: 3px;
-	padding-top: 20px;
-}
 
-#ceremony h5{
-	font-family: 'Rokkitt', serif;
-	font-size: 30px;
-	line-height: 34px;
-	color: #fff;
-	text-align: center;
-	text-transform: capitalize;
-	font-weight: 400;
-	width: 250px;
-	background: #272727;
-	margin: 20px auto 0;
-	padding: 10px 15px;
-	border-radius: 4px;
-	letter-spacing: 4px;
-}
-
-
-/*
-	==============
-	[7. PHOTOS]
-	==============
-*/
-
-#photos{
+/*-------------------------------------------
+				Peta
+  ------------------------------------------- */
+  
+  
+#peta{
 	background: url(../img/bg.png);
 	padding: 50px 0;
 	font-family: 'Rokkitt', serif;
@@ -436,7 +417,7 @@ body{
 	position:relative;
 }
 
-#photos:after{
+#peta:after{
 	content: "";
 	width: 100%;
 	position: absolute;
@@ -445,20 +426,20 @@ body{
 	background: url(../img/line.png);
 }
 
-#photos p{
+#peta p{
 	font-size: 16px;
 	line-height: 24px;
 }
 
-#photos div.container{
+#peta div.container{
 	text-align: center;
 }
 
-#photos blockquote{
+#peta blockquote{
 	text-align: left;
 }
 
-#photos h2{
+#peta h2{
 	font-family: 'Playfair Display SC', serif;
 	font-weight: normal;
 	font-size: 18px;
@@ -472,23 +453,32 @@ body{
 	text-align: center;
 }
 
-#photos h4{
+#peta h4{
 	font-family: 'Playfair Display SC', serif;
 	font-weight: 400;
 }
 
-#photos .img img{
+#peta .img img{
 	display: block;
 	margin: 0 auto;
 }
 
+#map {
+  display:block;
+  height:500px;
+  width: auto;
+  background: #6699cc;
+  position: relative;
+  background-color: rgb(229, 227, 223);
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  }
+/*-------------------------------------------
+				Transportasi
+  ------------------------------------------- */				
 
-/*
-	================
-	[8. CONTACT]
-	================
-*/
-#contact{
+
+#transportasi{
 	background-color:#fff;
 	background:url(../img/bg4.jpg)  repeat fixed center center transparent;
 	background-size: 100% 100%;
@@ -496,7 +486,7 @@ body{
 	padding: 40px 0;
 }
 
-#contact h2{
+#transportasi h2{
     font-family: 'Alex Brush', cursive;
 	font-weight: normal;
 	font-size: 85px;
@@ -509,7 +499,7 @@ body{
 	margin: 0;
 }
 
-#contact h5{
+#transportasi h5{
 	font-family: 'Rokkitt', serif;
 	font-size: 30px;
 	line-height: 34px;
@@ -526,7 +516,7 @@ body{
 }
 
 
-#contact .well {
+#transportasi .well {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -540,325 +530,107 @@ body{
           box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
-#contact input["type=text"]{
+#transportasi input["type=text"]{
 	border-radius: 0;
 	outline: none;
 }
 
 
-/*
-	================
-	[9. RESPONSIVE]
-	================
+/*-------------------------------------------
+				Bukutamu 
+  ------------------------------------------- */				
 
 
-@media (min-width: 979px) and (max-width: 1200px)  {
-	#home h1{
-		padding: 100px 0 20px;
-	}
-	
-	#home .line:before{
-		width: 220px;
-	}
-
-	#home .line:after{
-		width: 220px;
-	}
-	
-	#ceremony .line:before {
-		width: 210px;
-	}
-		
-	#ceremony .line:after {
-		width: 210px;
-	}
+#bukutamu{
+	background-color:#fff;
+	background:url(../img/bg4.jpg)  repeat fixed center center transparent;
+	background-size: 100% 100%;
+	height: 400px;
+	padding: 40px 0;
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
-	body{
-		padding-top: 0;
-		margin-top: 0;
-	}
-	
-	.navbar-fixed-top{
-		margin-bottom: 0;
-	}
-	
-	.navbar-fixed-top,
-	.navbar-fixed-bottom{
-		position: fixed;
-	}
-	
-	.navbar-nav {
-	  position: relative;
-	  left: 0;
-	  display: block;
-	  float: left;
-	  margin: 0;
-	}
-
-	.navbar-nav,
-	.navbar-nav > li > a {
-	  float:none;
-	  display:block;
-	  *display:block; 
-	  *zoom:1;
-	  vertical-align: top;
-	}
-
-	.navbar-nav > li > a {
-	  float: none;
-	  padding: 10px 0px 15px;
-	  color: #999;
-	  display: block;
-	  transition: color 0.3s ease-in-out;
-	  -o-transition: color 0.3s ease-in-out;
-	  -webkit-transition: color 0.3s ease-in-out;
-	  -moz-transition: color 0.3s ease-in-out;
-	  font-weight: 300;
-	}
-
-	.navbar-nav > li > a:focus,
-	.navbar-nav > li > a:hover {
-	  color: #b1d95c;
-	  text-decoration: none;
-	  background-color: transparent;
-	  -webkit-box-shadow: none;
-		 -moz-box-shadow: none;
-			  box-shadow: none;
-	  transition: color 0.3s ease-in-out;
-	  -o-transition: color 0.3s ease-in-out;
-	  -webkit-transition: color 0.3s ease-in-out;
-	  -moz-transition: color 0.3s ease-in-out;
-	}
-
-	.navbar-nav > .active > a,
-	.navbar-nav > .active > a:hover,
-	.navbar-nav > .active > a:focus {
-	  color: #a4c956;
-	  text-decoration: none;
-	  background-color: transparent;
-	  -webkit-box-shadow: none;
-		 -moz-box-shadow: none;
-			  box-shadow: none;
-	}
-	
-	.navbar .btn-navbar {
-		margin-top: 15px;
-	}
-	
-	#home h1{
-		padding: 100px 0 0px;
-	}
-	
-	#home h2{
-		text-align: center;
-		font-size: 90px;
-	}
-	
-	#home .line:before {
-		width: 120px;
-	}
-		
-	#home .line:after {
-		width: 120px;
-	}
-	
-	#ceremony .line:before {
-		width: 100px;
-	}
-		
-	#ceremony .line:after {
-		width: 100px;
-	}
-	
+#bukutamu h2{
+    font-family: 'Alex Brush', cursive;
+	font-weight: normal;
+	font-size: 85px;
+	line-height:85px;
+	color: #fff;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+	filter: dropshadow(color=rgba(0, 0, 0, 0.5), offx=1, offy=1);
+	text-align: center;
+	padding: 100px 0 30px;
+	margin: 0;
 }
 
-@media (max-width: 767px) {
-  body {
-	margin-top: 0;
-	padding-top: 0;
-	padding-right: 0px;
-	padding-left: 0;
-  }
-  .navbar-fixed-top,
-  .navbar-fixed-bottom,
-  .navbar-static-top {
-	margin-bottom: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-  }
-  
-	.navbar-fixed-top,
-	.navbar-fixed-bottom{
-		position: fixed;
-	}
-	
-	.navbar-nav {
-	  position: relative;
-	  left: 0;
-	  display: block;
-	  float: left;
-	  margin: 0;
-	}
-
-	.navbar-nav,
-	.navbar-nav > li > a {
-	  float:none;
-	  display:block;
-	  *display:block; 
-	  *zoom:1;
-	  vertical-align: top;
-	}
-
-	.navbar-nav > li > a {
-	  float: none;
-	  padding: 10px 0px 15px;
-	  color: #999;
-	  display: block;
-	  transition: color 0.3s ease-in-out;
-	  -o-transition: color 0.3s ease-in-out;
-	  -webkit-transition: color 0.3s ease-in-out;
-	  -moz-transition: color 0.3s ease-in-out;
-	  font-weight: 300;
-	}
-
-	.navbar-nav > li > a:focus,
-	.navbar-nav > li > a:hover {
-	  color: #b1d95c;
-	  text-decoration: none;
-	  background-color: transparent;
-	  -webkit-box-shadow: none;
-		 -moz-box-shadow: none;
-			  box-shadow: none;
-	  transition: color 0.3s ease-in-out;
-	  -o-transition: color 0.3s ease-in-out;
-	  -webkit-transition: color 0.3s ease-in-out;
-	  -moz-transition: color 0.3s ease-in-out;
-	}
-
-	.navbar-nav > .active > a,
-	.navbar-nav > .active > a:hover,
-	.navbar-nav > .active > a:focus {
-	  color: #a4c956;
-	  text-decoration: none;
-	  background-color: transparent;
-	  -webkit-box-shadow: none;
-		 -moz-box-shadow: none;
-			  box-shadow: none;
-	}
-	
-	.navbar .btn-navbar {
-		margin-top: 15px;
-	}
-	
-	#home h1{
-		padding: 50px 20px 20px;
-	}
-	
-	#home h2{
-		text-align: center;
-		font-size: 90px;
-	}
-	
-	#home .line:before {
-		width: 130px;
-	}
-		
-	#home .line:after {
-		width: 130px;
-	}
-	
-	#about div.container{
-		padding: 0 20px;
-	}
-	
-	#ceremony div.container{
-		padding: 0 20px;
-	}
-	
-	#ceremony h2{
-		text-align: center;
-		font-size: 90px;
-	}
-	
-	#ceremony .line:before {
-		width: 100px;
-	}
-		
-	#ceremony .line:after {
-		width: 100px;
-	}
-	
-	#photos{
-		text-align: center;
-	}
-	
-	#photos div.container{
-		padding: 0 20px;
-	}
-	
-	#contact .well{
-		margin: 0 40px;
-	}
+#bukutamu h5{
+	font-family: 'Rokkitt', serif;
+	font-size: 30px;
+	line-height: 34px;
+	color: #fff;
+	text-align: center;
+	text-transform: capitalize;
+	font-weight: 400;
+	width: 250px;
+	background: #272727;
+	margin: 20px auto 0;
+	padding: 10px 15px;
+	border-radius: 4px;
+	letter-spacing: 4px;
 }
 
-@media (min-width: 480px) and (max-width: 767px) {
-	#home .line:before {
-		width: 120px;
-	}
-		
-	#home .line:after {
-		width: 120px;
-	}
-	
-	#home h2{
-		text-align: center;
-		font-size: 70px;
-	}
-	
-	#ceremony .line:before {
-		width: 80px;
-	}
-		
-	#ceremony .line:after {
-		width: 80px;
-	}
-	
-	#ceremony h2{
-		text-align: center;
-		font-size: 70px;
-	}
-	
+
+#bukutamu .well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: rgba(255,255,255,0.7);
+  border: 1px solid #fff;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+     -moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 480px) {
-	#home .line:before {
-		background: transparent;
-	}
-		
-	#home .line:after {
-		background: transparent;
-	}
-	
-	#home h2{
-		text-align: center;
-		font-size: 50px;
-	}
-	
-	#ceremony .line:before {
-		background: transparent;
-	}
-		
-	#ceremony .line:after {
-		background: transparent;
-	}
-	
-	#ceremony h2{
-		text-align: center;
-		font-size: 50px;
-	}
-
+#bukutamu input["type=text"]{
+	border-radius: 0;
+	outline: none;
 }
 
-*/
+
+/*-------------------------------------------
+				Footer 
+  ------------------------------------------- */				
+
+ #footer {
+	background: url(../img/bg.png) repeat fixed center center;
+	color: #444;
+	position:relative;
+	width:auto;
+	height:2em;
+}
+
+ #footer h6{
+	vertical-align: center;
+    display: block;
+	text-align:left;
+	padding-left:10px;
+	padding-top:7px;
+	height:auto;
+	margin-top:0;
+}
+
+
+
+
+
+
+
+
+/* made with love by Dany Laksono - 2014 */
+
+
+
+
+

@@ -151,7 +151,7 @@ body{
 
 #home .bubble-wrap{
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 7%;
   padding: 20px;
   width: 350px;
@@ -162,11 +162,12 @@ body{
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background-image: url('/img/o50.png'); 
+  /*background-image: url('/img/o50.png'); */
   background-repeat: repeat; 
   
 
 }
+/*
 @media (max-width: 640px) {
 #home .bubble-wrap {
     width: 200px;
@@ -178,6 +179,13 @@ body{
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
   }
+}*/
+
+#home .bubble-wrap .well {
+	background-color: rgba(70, 70, 70, 0.7);
+	border-radius:75px;
+	-webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
 }
 
 #home .bubble-wrap h1,

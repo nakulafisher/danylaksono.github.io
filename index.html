@@ -31,11 +31,9 @@
 				osmAttrib='Map data &copy; OpenStreetMap contributors';
 			var osm = new L.TileLayer(osmUrl, {minZoom: 5, maxZoom: 20, attribution: osmAttrib});
 			*/
-			
-			
+						
 			var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/{styleId}/256/{z}/{x}/{y}.png',
-				cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
-			
+				cloudmadeAttribution = 'Peta &copy; 2011 Kontributor OSM, Provider &copy; 2011 CloudMade';
 			
 			//basemaps
 			var fresh   	=  L.tileLayer(cloudmadeUrl, {styleId: 997, attribution: cloudmadeAttribution}),
@@ -45,13 +43,12 @@
 			//markers
 			var lestari = L.marker([-5.13955, 119.44492]).bindPopup("<b>Walimatul 'Urs</b><br>Gedung Lestari 45</br>"),
 				rumah = L.marker([-5.14100, 119.50821]).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
-			var markers = L.layerGroup([lestari, rumah]).addTo(map);
-			
-			map.addLayer(fresh);
-			
+			var markers = new L.featureGroup([lestari, rumah]).addTo(map);
+						
+			//buat control
 			var baseMaps = {
-				"Fresh": fresh,
 				"Tourist": tourist,
+				"Fresh": fresh,
 				"Night": midnight
 			};
 
@@ -60,10 +57,11 @@
 			};
 					
 			// set center
+			map.addLayer(tourist);
 			map.setView(new L.LatLng(lat, lng),15);
 			L.control.layers(baseMaps, markers).addTo(map);
-				
 			map.fitBounds(markers.getBounds());
+			document.alert(markers.getBounds());
 				
 			
 			
@@ -106,6 +104,7 @@
 	
 	<section id="home">
 		<div class="bubble-wrap">
+			<div class="well">
 				<img class="decore-top img-responsive" src="/img/decor-1.png" alt=""/>
 				<h3>Undangan Pernikahan</h3>
 				<h1> <span style="margin-left:-20%">Rindi Kurnianti</span> 
@@ -113,6 +112,7 @@
 				<span style="margin-right:-20%"> Dany Laksono</span></h1>
 				<h2> Makassar, 22 Maret 2014</h3>
 				<img class="decore-bottom img-responsive" src="/img/decor-3.png" alt=""/>
+			</div>
 		</div>		
 	</section>
 	
@@ -352,7 +352,7 @@
 	
 	<section id="footer">
 		<div class="foo">
-			<h6>Made with love by <a href="https://github.com/danylaksono/danylaksono.github.io">Dany Laksono</a> @ 2014</h6>
+			<h6>Made with love by <a href="https://github.com/danylaksono/danylaksono.github.io">Dany Laksono</a> &copy; 2014</h6>
 		</div>
 	</section>
 	

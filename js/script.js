@@ -11,9 +11,5 @@ $(document).ready(function() {
 	});
 	
 	$('body').scrollspy({'offset':50});
-    
-    //$('[rel=tooltip]').tooltip();
-    //$('.carousel').carousel();
-	
 });
 

@@ -421,6 +421,7 @@ body{
 	font-weight: normal;
 	font-size: 3em;
 	color: #333;
+	padding-top:20px;
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
 	filter: dropshadow(color=rgba(0, 0, 0, 0.5), offx=1, offy=1);
 	text-align: center;

@@ -25,21 +25,45 @@
 			
 			map = new L.Map('map');
 		
-			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-			var osmAttrib='Map data &copy; OpenStreetMap contributors';
-			
+			/*
+			//Cloudmade looks better, so this one left as comment :p
+			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+				osmAttrib='Map data &copy; OpenStreetMap contributors';
 			var osm = new L.TileLayer(osmUrl, {minZoom: 5, maxZoom: 20, attribution: osmAttrib});
-
+			*/
 			
+			
+			var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/{styleId}/256/{z}/{x}/{y}.png',
+				cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
+			
+			
+			//basemaps
+			var fresh   	=  L.tileLayer(cloudmadeUrl, {styleId: 997, attribution: cloudmadeAttribution}),
+				midnight  	= L.tileLayer(cloudmadeUrl, {styleId: 999, attribution: cloudmadeAttribution}),
+				tourist 	= L.tileLayer(cloudmadeUrl, {styleId: 7, attribution: cloudmadeAttribution});
+
+			//markers
+			var lestari = L.marker([-5.13955, 119.44492]).bindPopup("<b>Walimatul 'Urs</b><br>Gedung Lestari 45</br>"),
+				rumah = L.marker([-5.14100, 119.50821]).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
+			var markers = L.layerGroup([lestari, rumah]).addTo(map);
+			
+			map.addLayer(fresh);
+			
+			var baseMaps = {
+				"Fresh": fresh,
+				"Tourist": tourist,
+				"Night": midnight
+			};
+
+			var markers = {
+				"Marker": markers
+			};
+					
 			// set center
 			map.setView(new L.LatLng(lat, lng),15);
-			map.addLayer(osm);
-			
-			//markermarker
-			var lestari = L.marker([-5.13955, 119.44492]).bindPopup("<b>Walimatul 'Urs</b><br>Gedung Lestari 45</br> <img src='/img/gdg.jpg'>"),
-				rumah = L.marker([-5.14100, 119.50821]).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
-			var marker = L.layerGroup([lestari, rumah]).addTo(map);
-			
+			L.control.layers(baseMaps, markers).addTo(map);
+				
+			map.fitBounds(markers.getBounds());
 				
 			
 			
@@ -258,12 +282,14 @@
 			</div>
 		<div class="countdon">
 			<script src="js/countdown.js"></script>
-			<h1> Hitung mundur: </br></br> </h1>
-			<script type="application/javascript">
+			<h1> Hitung mundur: </br> </br> </h1>
+			<script type="application/javascript"> <!--countdown by Mike Gieson -->
 				var myCountdown1 = new Countdown({
 								 	year: 2014, 
 									month:3,
 									day:22,
+									hour: 9,
+									ampm: "am",
 									width:350, 
 									height:60,  
 									rangeHi:"month",
@@ -326,7 +352,7 @@
 	
 	<section id="footer">
 		<div class="foo">
-			<h6>Made with love by Dany Laksono @ 2014</h6>
+			<h6>Made with love by <a href="https://github.com/danylaksono/danylaksono.github.io">Dany Laksono</a> @ 2014</h6>
 		</div>
 	</section>
 	

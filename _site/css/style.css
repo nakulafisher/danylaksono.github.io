@@ -401,27 +401,21 @@ body{
 	font-family:Roboto condensed;
 	text-align: center;
 	font-size: 18px;
-	height:100%;
-	min-height:580px;
+	/*height:100%;
+	max-height:600px;*/
 	background:url(../img/bg5.jpg) repeat fixed center center transparent; 
 	background-size: 100% 100%;
 	padding: 40px 0;
 	position:relative;
 }
 
-#resepsi div.container{
-	text-align: center;
-	padding: 0 0;
-	margin-left:auto;
-	margin-right:auto;
-}
 
 #resepsi h1{
 	font-family: 'Tangerine', cursive;
 	font-weight: normal;
 	font-size: 3em;
 	color: #333;
-	padding-top:20px;
+	padding-top:10px;
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
 	filter: dropshadow(color=rgba(0, 0, 0, 0.5), offx=1, offy=1);
 	text-align: center;
@@ -456,12 +450,12 @@ body{
 
 #resepsi  .countdon {
 	display: block;
-	max-width: 300px;
+	max-width: 350px;
 	width:100%;
 	margin-left:auto;
 	margin-right:auto;
 	padding-top:30px;
-	padding-bottom:20px;
+	padding-bottom:50px;
 }
 
 
@@ -477,9 +471,9 @@ body{
 	font-size: 16px;
 	line-height: 24px;
 	color: #888;
-
 	position:relative;
 }
+
 #peta:before {
 	content: "";
 	width: 100%;

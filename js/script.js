@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	$('.nav a').live('click', function() {
+	$('.nav a').click('click', function() {
 		var thehref = $(this).attr('href');
 		if ( thehref == '#home' ) {
 			$.scrollTo( 0, 900 );
@@ -12,8 +12,8 @@ $(document).ready(function() {
 	
 	$('body').scrollspy({'offset':50});
     
-    $('[rel=tooltip]').tooltip();
-    $('.carousel').carousel();
+    //$('[rel=tooltip]').tooltip();
+    //$('.carousel').carousel();
 	
 });
 

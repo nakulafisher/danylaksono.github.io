@@ -1,92 +1,62 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
     <title>Rindi & Dany - The Wedding</title>
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dany Rindi Wedding">
     <meta name="author" content="Dany Laksono">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-
+	
+	
     <!-- CSS -->
     <link href="css/bootstrap.css" rel="stylesheet"> <!-- Bootstrap v3.0.3 -->
     <link href="css/style.css" rel="stylesheet">
 	
-	<!-- Beberapa js buat peta -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> 
-	<script type="text/javascript" src="js/gmaps.js"></script>
+		
+	<!-- Leaflet Library -->	
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script> 
 	<script type="text/javascript">
-			var map;
-			$(document).ready(function(){
-				map = new GMaps({
-					div: '#map',
-					lat: -5.13919,
-					lng: 119.44541
-					/*mapTypeControlOptions: {
-					mapTypeIds : ["hybrid", "roadmap", "satellite", "terrain", "osm", "cloudmade"]
-					} */
-				});
-				map.addMapType("osm", {
-					getTileUrl: function(coord, zoom) {
-						return "http://tile.openstreetmap.org/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
-					},	
-					tileSize: new google.maps.Size(256, 256),
-					name: "OpenStreetMap",
-					maxZoom: 18
-				});
-				/*map.addMapType("cloudmade", {
-					getTileUrl: function(coord, zoom) {
-						return "http://b.tile.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/1/256/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
-					},
-					tileSize: new google.maps.Size(256, 256),
-					name: "CloudMade",
-					maxZoom: 18
-				}); */
-				map.addMarker({
-					lat: -5.13970,
-					lng: 119.44493,
-					title: 'Gedung Lestari 45',
-					click: function(e) {
-						infoWindow: {
-						content: '<p>HTML Content</p>'}
-						
-					}
-				});
-				map.setMapTypeId("osm");
-			});
+		var map;
+		var lat = -5.13919;
+		var lng = 119.44541;
+		function initmap() {
 			
+			map = new L.Map('map');
+		
+			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+			var osmAttrib='Map data &copy; OpenStreetMap contributors';
+			
+			var osm = new L.TileLayer(osmUrl, {minZoom: 5, maxZoom: 20, attribution: osmAttrib});
+
+			
+			// set center
+			map.setView(new L.LatLng(lat, lng),15);
+			map.addLayer(osm);
+			
+			//markermarker
+			var lestari = L.marker([-5.13955, 119.44492]).bindPopup("<b>Walimatul 'Urs</b><br>Gedung Lestari 45</br> <img src='/img/gdg.jpg'>"),
+				rumah = L.marker([-5.14100, 119.50821]).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
+			var marker = L.layerGroup([lestari, rumah]).addTo(map);
+			
+				
+			
+			
+		}
 		</script>
-	<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" /> 
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js?2"></script> 
-	<script type="text/javascript">
-		var map = L.map('map').setView([-5.13919, 119.44541], 13);
-		L.tileLayer('http://{s}.tile.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/997/256/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
-		}).addTo(map);
-		</script> -->
 	
-	<!--[if IE 7]>
-	<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
-	<![endif]-->
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
+	<!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+	
+	
   </head>
 
-  <body>
+  <body onload='initmap()'>
 	<!-- navbar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-header">
@@ -123,23 +93,29 @@
 	</section>
 	
 	<section id="undangan">
-		<div class="container" style="padding: 0 15px">
-			<div class="row" style="margin: 0 -15px">
-				<div class="col-md-6 ">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6" style="padding: 0 15px">
 					<p>
-					<i>Segala puji bagi Allah ta'ala yang telah menjadikan segala makhluk-Nya berpasang-pasangan.</i>
+					<i>Segala puji bagi Allah Ta'ala yang telah menjadikan segala makhluk-Nya berpasang-pasangan.</i>
 					<br><br>
 					Dengan memohon limpahan Ridho dan Kasih Sayang Allah Subhanahu Wa Ta'ala, kami bermaksud mengundang 
 					Bapak/Ibu/Rekan-rekan semuanya dalam acara pernikahan kami:
-					<br>
-					<h2>Rindi Kurnianti, ST</h2><br>
-					Putri dari Bapak Basri Bokko, Makassar<br>
-					<br>
-					dengan
-					<br>
-					
-					<h2>Dany Puguh Laksono, ST</h2><br>
-					Putra dari Bapak Suwadi, Gresik, Jawa Timur
+					<div class="row">
+						<div class="col-md-5">
+						
+						<h2>Rindi Kurnianti, ST</h2><br>
+						Putri dari Bapak Basri Bokko dan Ibu Dyah Purhayati, Makassar<br>
+						
+						</div>
+						<div class="col-md-2">
+						<br><br><br><i>dengan</i>
+						</div>
+						<div class="col-md-5">
+						<h2 style="font-size:1.8em">Dany Puguh Laksono, ST</h2><br>
+						Putra dari Bapak Suwadi dan Ibu Nasiroh, Panceng, Gresik, Jawa Timur<br>
+						</div>
+					</div>
 					<br><br>
 					Ungkapan terima kasih dan rasa syukur kami sampaikan atas kehadiran Bapak/Ibu/rekan sekalian 
 					atas kehadiran dan doa restu kepada kedua mempelai. 
@@ -148,16 +124,96 @@
 					</p>
 					<div class="row">
 						<div class="col-md-6">
-						Keluarga Bapak Basri Bokko
+						<b>Keluarga Bapak Basri Bokko</b>
 						</div>
 						<div class="col-md-6">
-						Keluarga Bapak Suwadi
+						<b>Keluarga Bapak Suwadi</b>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6"> 
-					<img class="picture img-responsive" src="img/minions.jpg">
+				<div class="col-md-1" style="padding: 0 20px">
 				</div>
+				<div class="col-md-5" style="padding: 0 20px">
+					<div class="hjstories" style="padding: 0 20px">
+					<!--Carousel - no control-->
+						<div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel">
+							<!--js script for good -->
+							<script type="javascript">
+							$('.carousel').carousel({
+								interval: 6000,
+								pause: "hover",
+								wrap: true
+							})
+							</script>
+							<!-- all images are courtesy of hj-story.com -->
+							<div class="carousel-inner">
+								<div class="item active">
+								  <div class="backgr" style="background-image:url('/img/slide/1.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/2.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/3.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/4.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/5.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/6.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/7.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/8.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/9.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/10.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/11.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/12.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/13.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/14.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/15.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/16.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/17.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/18.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/19.jpg');"></div>
+								</div>
+								<div class="item">
+								  <div class="backgr" style="background-image:url('/img/slide/20.jpg');"></div>
+								</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#slideshow" data-slide="prev"></a>
+							<a class="right carousel-control" href="#slideshow" data-slide="next"></a>
+					</div>
+				</div>
+			</div>
 			</div> 
 		</div>
 		<img class="decor img-responsive" src="img/bottom.png">
@@ -165,7 +221,6 @@
 	
 	<section id="resepsi">
 		<div class="container">
-		
 			<div class="row" style="margin: 0 -15px">
 				<div class="col-md-6">
 					<p>
@@ -173,36 +228,57 @@
 					<br>
 					Akad nikah insya Allah akan dilangsungkan pada:<br>
 					<br>
+					<i>
 					Sabtu, 22 Maret 2014<br>
-					Pukul 08.00 WITA<br>
+					Pukul 09.00 WITA<br>
+					</i>
 					<br>
 					Bertempat di Kediaman Mempelai Wanita,<br>
-					Perumahan Bumi Tamalanrea Permai (BTP) Blok J/165B<br>
+					Perumahan Bumi Tamalanrea Permai (BTP) Blok J/167 B<br>
 					Tamalanrea, Makassar
 					</p>
 				</div>
 				<div class="col-md-6">
 					<p>
-						<h1> Walimatul 'Ursy </h1>
+						<h1> Walimatul 'Urs </h1>
 						<br>
-						Acara Walimatul 'Ursy diselenggarakan pada:<br>
+						Acara Walimatul 'Urs diselenggarakan pada:<br>
 						<br>
+						<i>
 						Sabtu, 22 Maret 2014<br>
-						Pukul 08.00 WITA<br>
+						Pukul 19.00 WITA - selesai <br>
+						</i>
 						<br>
 						Bertempat di Gedung Lestari 45,<br>
 						Jalan Urip Sumoharjo, Makassar<br>
 					</p>
 				</div>
 			</div>
-			
+		<div class="countdon">
+			<script src="js/countdown.js"></script>
+			<h1> Hitung mundur: </br></br> </h1>
+			<script type="application/javascript">
+				var myCountdown1 = new Countdown({
+								 	year: 2014, // 86400 seconds = 1 day
+									month:3,
+									day:22,
+									width:300, 
+									height:60,  
+									rangeHi:"month",
+									style:"flip"	// <- no comma on last item!
+									});
+			</script>
+		</div>
 		</div>
 	</section>
+	
+	
 	
 	<section id="peta">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
+				<!-- tombol2 kontrol -->	
 				</div>
 				<div class="col-md-9">
 					<div id="map"></div>
@@ -211,22 +287,18 @@
 		</div>
 	</section>
 	
+	
+	
 	<section id="bukutamu">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
+				<div class="col-md-2"></div>
+				<div class="col-md-4">
 						<form class="form-horizontal" role="form">
 						  <div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label">Nama</label>
 							<div class="col-sm-10">
 							  <input type="text" class="form-control" id="inputnama" placeholder="Nama">
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label for="inputPassword3" class="col-sm-2 control-label">Email</label>
-							<div class="col-sm-10">
-							  <input type="email" class="form-control" id="inputemail" placeholder="Email">
 							</div>
 						  </div>
 						  <div class="form-group">
@@ -242,7 +314,10 @@
 						  </div>
 						</form>
 				</div>	
-				<div class="col-md-3"></div>
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-2">
+				</div>
 			</div>
 		</div>
 	</section>
@@ -253,11 +328,13 @@
 		</div>
 	</section>
 	
-    <!-- du javascript
+    <!-- javascript ipun
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="js/bootstrap.js"></script>
+    
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 	<script src="js/jquery.scrollTo.min.js"></script>
     <script src="js/script.js"></script>
 

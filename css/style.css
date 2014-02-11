@@ -156,30 +156,28 @@ body{
   padding: 20px;
   width: 350px;
   height: 350px;
+  /*
   -webkit-border-radius: 350px;
   -moz-border-radius: 350px;
   border-radius: 75px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  /*background-image: url('/img/o50.png'); */
-  background-repeat: repeat; 
-  
-
+  background-image: url('/img/o50.png'); 
+  background-repeat: repeat; */
 }
-/*
 @media (max-width: 640px) {
 #home .bubble-wrap {
     width: 200px;
     height: 200px;
-    -webkit-border-radius: 200px;
-    -moz-border-radius: 200px;
-    border-radius: 200px;
-    -moz-background-clip: padding;
+    border-radius:75px;
+	-webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    /*-moz-background-clip: padding;
     -webkit-background-clip: padding-box;
-    background-clip: padding-box;
+    background-clip: padding-box;*/
   }
-}*/
+}
 
 #home .bubble-wrap .well {
 	background-color: rgba(70, 70, 70, 0.7);

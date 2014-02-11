@@ -4,7 +4,7 @@
     <title>Rindi & Dany - The Wedding</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dany Rindi Wedding">
+    <meta name="description" content="Dany Laksono, Rindi Kurnianti, Wedding">
     <meta name="author" content="Dany Laksono">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	
@@ -19,19 +19,16 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script> 
 	<script type="text/javascript">
 		var map;
-		var lat = -5.13919;
-		var lng = 119.44541;
 		function initmap() {
 			
 			map = new L.Map('map');
 		
-			/*
-			//Cloudmade looks better, so this one left as comment :p
+			
+			//the original osm 'standard' style
 			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 				osmAttrib='Map data &copy; OpenStreetMap contributors';
 			var osm = new L.TileLayer(osmUrl, {minZoom: 5, maxZoom: 20, attribution: osmAttrib});
-			*/
-						
+			
 			var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/{styleId}/256/{z}/{x}/{y}.png',
 				cloudmadeAttribution = 'Peta &copy; 2011 Kontributor OSM, Provider &copy; 2011 CloudMade';
 			
@@ -43,30 +40,32 @@
 			//markers
 			var lestari = L.marker([-5.13955, 119.44492]).bindPopup("<b>Walimatul 'Urs</b><br>Gedung Lestari 45</br>"),
 				rumah = L.marker([-5.14100, 119.50821]).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
-			var markers = new L.featureGroup([lestari, rumah]).addTo(map);
+			var titik = new L.featureGroup([lestari, rumah]).addTo(map);
 						
 			//buat control
 			var baseMaps = {
+				"Standard": osm,
 				"Tourist": tourist,
 				"Fresh": fresh,
 				"Night": midnight
 			};
 
 			var markers = {
-				"Marker": markers
+				"Marker": titik
 			};
 					
-			// set center
+			// keep calm and draw maps
 			map.addLayer(tourist);
-			map.setView(new L.LatLng(lat, lng),15);
+			map.fitBounds(titik.getBounds());
+			
+			latlngmap 	= map.getCenter();
+			zoomap		= map.getZoom();
+			
+			map.setView(latlngmap, (zoomap-1)); //reset the view 
+			
 			L.control.layers(baseMaps, markers).addTo(map);
-			map.fitBounds(markers.getBounds());
-			document.alert(markers.getBounds());
-				
-			
-			
 		}
-		</script>
+	</script>
 	
 	<!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
@@ -166,7 +165,7 @@
 							<!--js script for good -->
 							<script type="javascript">
 							$('.carousel').carousel({
-								interval: 7000,
+								interval: 8000,
 								pause: "hover",
 								wrap: true
 							})

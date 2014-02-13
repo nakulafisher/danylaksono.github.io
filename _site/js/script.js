@@ -137,6 +137,8 @@ jQuery(document).on('ready', function() {
 		//alert('dipanggil');
 		jQuery('#bukuTamuForm').bind('submit', function(event){
 			event.preventDefault();
+			var form = this;
+			json = ConvertFormToJSON(form);
 			//var tbody = jQuery('#isiBuku > tbody');
 			//tbody.append('<h2> ditambah lo</h2>');
 			$( ".panel-body" ).prepend( "<h4>"+ this['inputNama'].value+"</h4>" );

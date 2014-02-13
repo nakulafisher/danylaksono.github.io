@@ -15,7 +15,6 @@
   ------------------------------------------- */
 
 @import url('font-awesome.min.css');
-/*@import url('animate.css');*/
 @import url(http://fonts.googleapis.com/css?family=Tangerine);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
@@ -121,6 +120,7 @@ body {
 	margin-bottom:0;
 	-webkit-border-radius: 75px;
     -moz-border-radius: 75px;
+	color: white !important;
 }
 
 #home  .well .row {
@@ -130,10 +130,6 @@ body {
 #home  .well .and {
 	text-align:center; 
 	
-}
-
-#home h1, h2, h3, h4 {
-  color: white !important;
 }
 
 #home h1  {
@@ -464,22 +460,15 @@ body {
 
 #peta .panel{
 	background-color: rgba(255, 255, 255, 0.5);
+	min-height:500px;
+	overflow: hidden;
+}
+@media (max-width: 640px) {
+#peta .panel{
+	height:300px;
+	}
 }
 
-#peta .panel{
-	background-color: rgba(255, 255, 255, 0.5);
-} 
- 
-#peta .results {
-	background-color: white;
-	opacity: 0.8;
-	position: absolute;
-	top: 12px;
-	right: 12px;
-	width: 320px;
-	height: 480px;
-	overflow-y: scroll;
-}
   
 /*-------------------------------------------
 				Bukutamu 
@@ -493,12 +482,29 @@ body {
 	padding: 40px 0;
 }
 
-#bukutamu .jumbotron{
-	background-color: rgba(10, 10, 10, 0.3); 
+#bukutamu .container .jumbotron{
+	background-color: rgba(10, 10, 10, 0.3);
+	color: #202020;
 }
 
-#bukutamu .panel{
-	min-height:250px;
+#bukutamu .container .jumbotron h2 {
+	font-family: Tangerine;
+	text-align:center;
+	color: black;
+}
+
+#bukutamu .jumbotron h4  {
+	font-family: 'Roboto Condensed';
+	text-align:center;
+}
+
+#bukutamu .panel .panel-body{
+	max-height:200px;
+	overflow-y:scroll;
+	word-wrap: break-word;
+}
+#bukutamu .isiBuku h2 {
+  color: black;
 }
 
 /*-------------------------------------------

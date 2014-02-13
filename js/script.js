@@ -126,5 +126,34 @@ function perbesar(zoomnya) {
 		map.setView(zoomnya.getLatLng(),18);
 	}
 	}
+
 	
+	
+// ------------------------------
+//        Buku Tamu
+// ------------------------------
+	
+jQuery(document).on('ready', function() {
+		//alert('dipanggil');
+		jQuery('#bukuTamuForm').bind('submit', function(event){
+			event.preventDefault();
+			//var tbody = jQuery('#isiBuku > tbody');
+			//tbody.append('<h2> ditambah lo</h2>');
+			$( ".panel-body" ).prepend( "<h4>"+ this['inputNama'].value+"</h4>" );
+			
+			return false;
+			
+		});
+	});
+	
+function ConvertFormToJSON(form){
+	var array = jQuery(form).serializeArray();
+	var json = {};
+
+	jQuery.each(array, function() {
+		json[this.name] = this.value || '';
+	});
+
+	return json;
+}		
 	

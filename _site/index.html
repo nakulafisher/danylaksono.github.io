@@ -8,64 +8,16 @@
     <meta name="author" content="Dany Laksono">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	
+	<!-- I really don't like putting this on top of page -_- -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
 	
-    <!-- CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet"> <!-- Bootstrap v3.0.3 -->
+	<!-- CSSes -->
     <link href="css/style.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css " rel="stylesheet" />
 	
-		
-	<!-- Leaflet Library -->	
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script> 
-	<script type="text/javascript">
-		var map;
-		function initmap() {
-			
-			map = new L.Map('map');
-		
-			
-			//the original osm 'standard' style
-			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-				osmAttrib='Map data &copy; OpenStreetMap contributors';
-			var osm = new L.TileLayer(osmUrl, {minZoom: 5, maxZoom: 20, attribution: osmAttrib});
-			
-			var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/{styleId}/256/{z}/{x}/{y}.png',
-				cloudmadeAttribution = 'Peta &copy; 2011 Kontributor OSM, Provider &copy; 2011 CloudMade';
-			
-			//basemaps
-			var fresh   	=  L.tileLayer(cloudmadeUrl, {styleId: 997, attribution: cloudmadeAttribution}),
-				midnight  	= L.tileLayer(cloudmadeUrl, {styleId: 999, attribution: cloudmadeAttribution}),
-				tourist 	= L.tileLayer(cloudmadeUrl, {styleId: 7, attribution: cloudmadeAttribution});
-
-			//markers
-			var lestari = L.marker([-5.13955, 119.44492]).bindPopup("<b>Walimatul 'Urs</b><br>Gedung Lestari 45</br>"),
-				rumah = L.marker([-5.14100, 119.50821]).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
-			var titik = new L.featureGroup([lestari, rumah]).addTo(map);
-						
-			//buat control
-			var baseMaps = {
-				"Standard": osm,
-				"Tourist": tourist,
-				"Fresh": fresh,
-				"Night": midnight
-			};
-
-			var markers = {
-				"Marker": titik
-			};
-					
-			// keep calm and draw maps
-			map.addLayer(tourist);
-			map.fitBounds(titik.getBounds());
-			
-			latlngmap 	= map.getCenter();
-			zoomap		= map.getZoom();
-			
-			map.setView(latlngmap, (zoomap-1)); //reset the view 
-			
-			L.control.layers(baseMaps, markers).addTo(map);
-		}
-	</script>
 	
 	<!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
@@ -102,16 +54,47 @@
 	<!-- Depan -->
 	
 	<section id="home">
-		<div class="bubble-wrap">
-			<div class="well">
-				<img class="decore-top img-responsive" src="/img/decor-1.png" alt=""/>
-				<h3>Undangan Pernikahan</h3>
-				<h1> <span style="margin-left:-20%">Rindi Kurnianti</span> 
-				<br> <span style="text-size:3em"> & </span><br> 
-				<span style="margin-right:-20%"> Dany Laksono</span></h1>
-				<h2> Makassar, 22 Maret 2014</h3>
-				<img class="decore-bottom img-responsive" src="/img/decor-3.png" alt=""/>
-			</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4 col-xs-offset-1">
+					<div class="well">
+						<img class="decore-top img-responsive" src="/img/decor-1.png" alt=""/>
+						<h3>Undangan Pernikahan</h3>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="row">
+									<div class="col-xs-9 pull-left" style="text-align:left">
+										<h1> Rindi Kurnianti</h1> 
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 and">
+										<h1> & </h1>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-9 pull-right" style="text-align:right">
+										<h1>Dany Laksono</h1>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h2> Makassar, 22 Maret 2014</h2>
+						<img class="decore-bottom img-responsive" src="/img/decor-3.png" alt=""/>
+					</div>
+				</div>
+			<!--div class="bubble-wrap">
+				<div class="well">
+					<img class="decore-top img-responsive" src="/img/decor-1.png" alt=""/>
+					<h3>Undangan Pernikahan</h3>
+					<h1> <span style="margin-left:-20%">Rindi Kurnianti</span> 
+					<br> <span style="text-size:3em"> & </span><br> 
+					<span style="margin-right:-20%"> Dany Laksono</span></h1>
+					<h2> Makassar, 22 Maret 2014</h3>
+					<img class="decore-bottom img-responsive" src="/img/decor-3.png" alt=""/>
+				</div>
+			</div-->		
+			</div>		
 		</div>		
 	</section>
 	
@@ -163,12 +146,12 @@
 					<!--Carousel - no control-->
 						<div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel">
 							<!--js script for good -->
-							<script type="javascript">
+							<script>
 							$('.carousel').carousel({
 								interval: 8000,
 								pause: "hover",
 								wrap: true
-							})
+							});
 							</script>
 							<!-- all images are courtesy of hj-story.com -->
 							<div class="carousel-inner">
@@ -282,8 +265,8 @@
 		<div class="countdon">
 			<script src="js/countdown.js"></script>
 			<h1> Hitung mundur: </br> </br> </h1>
-			<script type="application/javascript"> <!--countdown by Mike Gieson -->
-				var myCountdown1 = new Countdown({
+			<script> <!--countdown by Mike Gieson -->
+				var hitungmundur = new Countdown({
 								 	year: 2014, 
 									month:3,
 									day:22,
@@ -294,6 +277,18 @@
 									rangeHi:"month",
 									style:"flip"
 									});
+				//biar countdownny responsive
+				function mediaqueryresponse(mql){
+				 if (mql.matches){ // if media query matches
+				  alert(width)
+				 }
+				 else{
+				  hitungmundur.width=350 
+				 }
+				}
+				var mql = window.matchMedia("screen and (max-width: 640px)")
+				mediaqueryresponse(mql) // call listener function explicitly at run time
+				mql.addListener(mediaqueryresponse) // attach listener function to listen in on state changes
 			</script>
 		</div>
 		</div>
@@ -305,7 +300,22 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-				<!-- tombol2 kontrol -->	
+					<div class="panel panel-primary"> 
+					<div class="panel-heading">Pengaturan Peta</div>
+					<div class="panel-body">
+						<div class="btn-group">
+						  <button type="button" class="clearfix btn btn-info dropdown-toggle pull-left" data-toggle="dropdown">
+							Perbesar Peta <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+							<li><a onclick="perbesar(rumah)" href="javascript:void(0)">Lokasi Akad</a></li>
+							<li><a onclick="perbesar(lestari)" href="javascript:void(0)">Lokasi Resepsi</a></li>
+							<li class="divider"></li>
+							<li><a onclick="perbesar(titik)" href="javascript:void(0)">Reset View</a></li>
+						  </ul>
+						</div>
+					</div>
+					</div>
 				</div>
 				<div class="col-md-9">
 					<div id="map"></div>
@@ -313,8 +323,6 @@
 			</div>
 		</div>
 	</section>
-	
-	
 	
 	<section id="bukutamu">
 		<div class="container">
@@ -357,13 +365,9 @@
 	
     <!-- javascript ipun
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
-    
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>     
 	<script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/script.js"></script>
+    
 
   </body>
 </html>

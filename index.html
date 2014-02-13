@@ -261,35 +261,27 @@
 					</p>
 				</div>
 			</div>
-		<div class="countdon">
-			<script src="js/countdown.js"></script>
-			<h1> Hitung mundur: </br> </br> </h1>
-			<script> <!--countdown by Mike Gieson -->
-				var hitungmundur = new Countdown({
-								 	year: 2014, 
-									month:3,
-									day:22,
-									hour: 9,
-									ampm: "am",
-									width:350, 
-									height:60,  
-									rangeHi:"month",
-									style:"flip"
-									});
-				//biar countdownny responsive
-				function mediaqueryresponse(mql){
-				 if (mql.matches){ // if media query matches
-				  alert(width)
-				 }
-				 else{
-				  hitungmundur.width=350 
-				 }
-				}
-				var mql = window.matchMedia("screen and (max-width: 640px)")
-				mediaqueryresponse(mql) // call listener function explicitly at run time
-				mql.addListener(mediaqueryresponse) // attach listener function to listen in on state changes
-			</script>
-		</div>
+			<div class="row" style="margin: 0 -15px">
+				<div class="col-md-12 hidden-xs"> <!--hide this in smaller device, too lazy to create a responsive one-->
+					<div class="countdon">
+						<script src="js/countdown.js"></script>
+						<h1> Hitung mundur: </br> </br> </h1>
+						<script> <!--countdown by Mike Gieson -->
+						var hitungmundur = new Countdown({
+										year: 2014, 
+										month:3,
+										day:22,
+										hour: 9,
+										ampm: "am",
+										width:350, 
+										height:60,  
+										rangeHi:"month",
+										style:"flip"
+										});
+						</script>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	

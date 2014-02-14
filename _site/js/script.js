@@ -6,10 +6,13 @@ var map;
 		
 	function initmap() {
 		
-		map = new L.Map('map');
+		map = new L.Map('map', {
+			minZoom: 12, 
+			maxZoom: 20
+		});
+			
 		
 		//the original osm 'standard' style (most updated, with untag buildings)
-		//L.TileLayer.MapBox.Light({minZoom: 10, maxZoom: 16});
 		var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib='Map data &copy; OpenStreetMap contributors';
 		var osm = new L.TileLayer(osmUrl, {minZoom: 5, maxZoom: 20, attribution: osmAttrib});
@@ -132,22 +135,8 @@ function perbesar(zoomnya) {
 // ------------------------------
 //        Buku Tamu
 // ------------------------------
-	
-jQuery(document).on('ready', function() {
-		//alert('dipanggil');
-		jQuery('#bukuTamuForm').bind('submit', function(event){
-			event.preventDefault();
-			var form = this;
-			json = ConvertFormToJSON(form);
-			//var tbody = jQuery('#isiBuku > tbody');
-			//tbody.append('<h2> ditambah lo</h2>');
-			$( ".panel-body" ).prepend( "<h4>"+ this['inputNama'].value+"</h4>" );
-			
-			return false;
-			
-		});
-	});
-	
+
+
 function ConvertFormToJSON(form){
 	var array = jQuery(form).serializeArray();
 	var json = {};
@@ -157,5 +146,75 @@ function ConvertFormToJSON(form){
 	});
 
 	return json;
-}		
+}
+
+
+
 	
+jQuery(document).on('ready', function() {
+		//alert('dipanggil');
+		jQuery('#bukuTamuForm').bind('submit', function(event){
+			event.preventDefault();
+			
+			
+			var nama       = $('input[id=inputNama]').val();
+			var alamat       = $('input[id=inputAlamat]').val();
+			var pesan       = $('textarea[id=inputPesan]').val();
+			
+			post_data = {'nama':nama, 'alamat':alamat, 'pesan':pesan};
+			
+			var form = this;
+			json = ConvertFormToJSON(form);
+			
+			$( ".panel-body" ).prepend( "<h4>"+ this['inputNama'].value+"</h4>" );
+			
+			$.post('bukutamu.php', post_data, function(data){ 
+			
+				alert("sukses");
+				$('#bukuTamuForm input').val(''); 
+				$('#bukuTamuForm textarea').val('');
+			
+			}).fail(function(err) {  
+                alert("gagal");
+				console.log(err);
+            });			
+			
+			/*
+			$.ajax({
+            type: "POST",
+            url: "encode.php",
+            data: json,
+            dataType: "json"
+        }).always(function() { 
+		
+        var tbody = jQuery('.panel-body > tbody');
+		
+
+			//var tbody = jQuery('#isiBuku > tbody');
+			//tbody.append('<h2> ditambah lo</h2>');
+			//$( ".panel-body" ).prepend( "<h4>"+ this['inputNama'].value+"</h4>" );
+		
+		
+		tbody.prepend( "<h4>"+ form['inputNama'].value+"</h4>" );
+			
+			
+			
+		}).fail(function() { 
+            alert("Failed to add to-do"); 
+			console.log(data);
+        });
+		*/
+		console.log(post_data);
+		return false;
+		});
+});
+	
+	
+	
+
+
+
+
+
+
+

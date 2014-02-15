@@ -23,17 +23,40 @@ var map;
 		//basemaps
 		var tourist   	=  L.tileLayer(cloudmadeUrl, {styleId: 7, attribution: cloudmadeAttribution}),
 			midnight  	= L.tileLayer(cloudmadeUrl, {styleId: 999, attribution: cloudmadeAttribution});
+			calm	  	= L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution});
 			
-
+	
 		//markers
-		lestari = L.marker([-5.13955, 119.44492]);
-		rumah = L.marker([-5.14100, 119.50821]).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
-		bandara = L.marker([-5.07656,119.54865]).bindPopup("<b>Bandara Sultan Hassanuddin</b>");
+		
+		var rumahIcon = L.icon({
+			iconUrl: 'img/home.png',
+			iconAnchor:   [0, 0]
+			
+		});
+		
+		var lestariIcon = L.icon({
+			iconUrl: 'img/apartment.png',
+			iconAnchor:   [0, 0]
+		});
+		
+		var bandaraIcon = L.icon({
+			iconUrl: 'img/airport.png',
+			iconAnchor:   [0, 0]
+		});
+		
+		
+		lestari = L.marker([-5.13955, 119.44492],{icon: lestariIcon});
+		bandara = L.marker([-5.07656,119.54865],{icon: bandaraIcon});
+		rumah = L.marker([-5.14100, 119.50821],{icon: rumahIcon}).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
 		
 		//This one is to fix some bug that make image unfit leaflet's pop-up.
-		var divNode = document.createElement('DIV');
-		divNode.innerHTML = '<b>Walimatul \'Urs</b><br>Gedung Lestari 45</br> <img src="/img/gdg.jpg"/>';
-		lestari.bindPopup(divNode);
+		var divNodeGdg = document.createElement('DIV');
+		divNodeGdg.innerHTML = '<b>Walimatul \'Urs</b><br>Gedung Lestari 45</br> <img src="/img/gdg.jpg"/>';
+		lestari.bindPopup(divNodeGdg);
+		
+		var divNodeBndr = document.createElement('DIV');
+		divNodeBndr.innerHTML = '<b>Bandara Sultan Hassanuddin</b> <img src="/img/bndr.jpg"/>';
+		bandara.bindPopup(divNodeBndr);
 		
 		titik = new L.featureGroup([lestari, rumah, bandara]).addTo(map);
 		
@@ -41,7 +64,8 @@ var map;
 		var baseMaps = {
 			"Standard": osm,
 			"Tourist": tourist,
-			"Night": midnight
+			"Night": midnight,
+			"Calm": calm
 		};
 
 		var markers = {
@@ -128,14 +152,14 @@ function perbesar(zoomnya) {
 	} else {
 		map.setView(zoomnya.getLatLng(),18);
 	}
-	}
+}
 
 	
 	
 // ------------------------------
 //        Buku Tamu
 // ------------------------------
-
+/*
 
 function ConvertFormToJSON(form){
 	var array = jQuery(form).serializeArray();
@@ -203,11 +227,11 @@ jQuery(document).on('ready', function() {
             alert("Failed to add to-do"); 
 			console.log(data);
         });
-		*/
 		console.log(post_data);
 		return false;
 		});
 });
+		*/
 	
 	
 	

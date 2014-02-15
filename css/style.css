@@ -460,17 +460,11 @@ body {
 	background: url(../img/line.png);
 }
 
-#peta p{
-	font-size: 16px;
-	line-height: 24px;
-}
-
 #peta div.container{
 	text-align: center;
 	height:100%;
-	margin-left: 10px;
-	margin-right:20px;
-	padding: 10 10 0 0;
+	width:100%;
+	padding: 50 0;
 }
 
 #map {
@@ -494,6 +488,9 @@ body {
 	}
 }
 
+#tombolPanel .btn {
+   padding:10px 0;
+}
   
 /*-------------------------------------------
 				Bukutamu 

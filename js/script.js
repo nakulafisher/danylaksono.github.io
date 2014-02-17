@@ -188,7 +188,7 @@ $(document).ready(function() {
 	
 	$('html, body').scrollspy({'offset':50});
 
-	});
+});
 
 
 	

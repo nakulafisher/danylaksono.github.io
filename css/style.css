@@ -422,6 +422,7 @@ body {
 #stage_jbeeb_3 {
 	margin-left:auto !important;
 	margin-right:auto !important;
+	font-size:0.8em !important;
 	}
 
 
@@ -472,7 +473,6 @@ body {
   background: #6699cc;
   background-color: rgb(229, 227, 223);
   overflow: hidden;
-  -webkit-transform: translateZ(0);
   }
 
 #peta .panel{
@@ -503,8 +503,8 @@ body {
 }
 #peta .modal-dialog .modal-content {
 	width: 520px;
-	
 }
+
 
 
 

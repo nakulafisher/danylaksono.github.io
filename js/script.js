@@ -7,7 +7,7 @@ var map;
 	function initmap() {
 		
 		this.map = new L.Map('map', {
-			minZoom: 12, 
+			minZoom: 9, 
 			maxZoom: 20
 		});
 			
@@ -193,8 +193,10 @@ function perbesar(zoomnya) {
 function onLocationFound(e) {
 	var radius = e.accuracy / 2;
 	L.marker(e.latlng).addTo(map)
-		.bindPopup("You are within " + radius + " meters from this point").openPopup();
+		.bindPopup("Anda berada pada radius " + radius + " meter dari sekitar titik ini").openPopup();
 	L.circle(e.latlng, radius).addTo(map);
+	map.setView(e.latlng,16);
+	
 }
 
 function onLocationError(e) {
@@ -203,7 +205,7 @@ function onLocationError(e) {
 
 function locateMe(){
 	map.locate({setView: true});
-	alert('Pencarian lokasi gagal. Aktifkan GPS anda atau tunggu beberapa saat lagi');
+	
 };
 
 

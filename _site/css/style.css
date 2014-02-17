@@ -485,6 +485,7 @@ body {
 @media (max-width: 640px) {
 #peta .panel{
 	height:300px;
+	width: auto;
 	}
 }
 
@@ -498,9 +499,17 @@ body {
 	word-wrap: break-word;
 }
 
-#utiket{
-    height: 100%;
+#peta .modal-dialog{
+    width: 520px;
+	height:auto;
 }
+#peta .modal-dialog .modal-content {
+	width: 520px;
+	
+}
+
+
+
 
   
 /*-------------------------------------------

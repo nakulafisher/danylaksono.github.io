@@ -10,7 +10,6 @@ var map;
 			minZoom: 9, 
 			maxZoom: 20
 		});
-			
 		
 		//the original osm 'standard' style (most updated, with untag buildings)
 		var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -21,7 +20,7 @@ var map;
 			cloudmadeAttribution = 'Peta &copy; 2011 Kontributor OSM, Provider &copy; 2011 CloudMade';
 		
 		//basemaps
-		var tourist   	=  L.tileLayer(cloudmadeUrl, {styleId: 7, attribution: cloudmadeAttribution}),
+		var tourist   	= L.tileLayer(cloudmadeUrl, {styleId: 7, attribution: cloudmadeAttribution}),
 			midnight  	= L.tileLayer(cloudmadeUrl, {styleId: 999, attribution: cloudmadeAttribution});
 			calm	  	= L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution});
 			
@@ -31,7 +30,6 @@ var map;
 		var rumahIcon = L.icon({
 			iconUrl: 'img/home.png',
 			iconAnchor:   [0, 0]
-			
 		});
 		
 		var lestariIcon = L.icon({
@@ -45,9 +43,9 @@ var map;
 		});
 		
 		
-		lestari = L.marker([-5.13955, 119.44492],{icon: lestariIcon});
+		lestari = L.marker([-5.13955,119.44492],{icon: lestariIcon});
 		bandara = L.marker([-5.07656,119.54865],{icon: bandaraIcon});
-		rumah = L.marker([-5.14100, 119.50821],{icon: rumahIcon}).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
+		rumah = L.marker([-5.14100,119.50821],{icon: rumahIcon}).bindPopup("<b>Akad Nikah</b><br>Rumah Mempelai Wanita");
 		
 		//This one is to fix some bug that make image unfit leaflet's pop-up.
 		var divNodeGdg = document.createElement('DIV');
@@ -86,45 +84,52 @@ var map;
 		map.on('locationfound', onLocationFound);
 		map.on('locationerror', onLocationError);
 		
+		
 // ------------------------------
 //        Informasi
 // ------------------------------
-
-		
-	$(document).ready(function() {
-		$(lestari).click(function(){
-			$("#info").fadeIn('slow').html('<h5><i>Gedung Lestari Univ. 45 Makassar</i></h5>'+
-						'</br> <h6>Untuk menuju gedung Lestari 45, Anda dapat menggunakan kendaraan pribadi atau kendaraan umum</h6>');
-		});
-		
-		$(rumah).click(function(){
-				$("#info").fadeIn('slow').html('<h5><i>Rumah Mempelai Perempuan</i></h5>');
-			});
-			
-		$(bandara).click(function(){
-				$("#info").fadeIn('slow').html('<h5><i>Bandara Sultan Hassanuddin</i></h5>'+
-						'<h5> Klik pada tombol berikut untuk menampilkan informasi rute perjalanan dari dan ke Bandara Sultan Hassanuddin </h5>'+
-						'<button class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-sm">Info Tiket</button>');
-			});
 	
-		
-		
-		
 	
+	
+	
+	$.getJSON("geojson/bandaraRumah.geoJSON", function (rumah) {
+		L.geoJson(rumah).addTo(map);
 	});
 	
 	
 	
+	var htmlLestari = [
+		'<h5>Terdapat dua alternatif rute yang dapat anda gunakan untuk menuju Gedung Lestari 45 dari Bandara:</h5></br> ',
+		'<label class="checkbox-inline"> <input type="checkbox" id="rute1" value="option1"> Rute 1 </label>',
+		'<label class="checkbox-inline"> <input type="checkbox" id="rute2" value="option2"> Rute 2 </label>'
+		].join('');
+	
+	
+	
+	
+	$(document).ready(function() {
+		$(lestari).click(function(){
+			$("#info").fadeIn('slow').html(htmlLestari);
+		});
 		
-	
-	
-	/*
-	
+		$(rumah).click(function(){
+			$("#info").fadeIn('slow').html('<h5><i>Rumah Mempelai Perempuan</i></h5>');
+		});
+			
+		$(bandara).click(function(){
+			$("#info").fadeIn('slow').html('<h5><i>Bandara Sultan Hassanuddin</i></h5>'+
+					'<h5> Klik pada tombol berikut untuk menampilkan informasi rute perjalanan dari dan ke Bandara Sultan Hassanuddin </h5>'+
+					'<button class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-sm">Info Tiket</button>');
+		});
+	});
+
+	}	
 // ------------------------------
 //        Routing Functions
 // ------------------------------
 
-	
+	// for some (unknown) reasons, the cloudmade routing function on one of the location failed, so I'll just skip this one
+	/*
 	function addScript(url) {
 		var script = document.createElement('script');
 		script.type="text/javascript";
@@ -140,21 +145,34 @@ var map;
 			points.push(point);
 		}
 		route= new L.Polyline(points, {
-			weight: 3,
+			weight: 4,
 			opacity: 0.5,
 			smoothFactor: 1
 		}).addTo(map);
 		route.bringToFront();
 	}
 		
-	fromMarker = lestari;
-	toMarker= rumah;
-	alert(toMarker.getLatLng().lng);
-	addScript('http://routes.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/api/0.3/' + fromMarker.getLatLng().lat + ',' + fromMarker.getLatLng().lng + ',' + toMarker.getLatLng().lat + ',' + toMarker.getLatLng().lng + '/car.js?callback=getRoute'); */
-	
-	}
+	fromMarker = bandara;
+	toMarker= lestari;
+	addScript('http://routes.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/api/0.3/' + fromMarker.getLatLng().lat + ',' + fromMarker.getLatLng().lng + ',' + toMarker.getLatLng().lat + ',' + toMarker.getLatLng().lng + '/car.js?callback=getRoute'); 
+	*/
 	
 	
+// ------------------------------
+//       Polyline route
+// ------------------------------
+
+	//pointsRumah, pointsLestari 
+
+	
+	/*routeRumah= new L.Polyline(points, {
+			color: "#ff7800",
+			weight: 4,
+			opacity: 0.5,
+			smoothFactor: 1
+		});
+		
+	*/
 
 // ------------------------------
 //        Animate scroll
@@ -193,7 +211,7 @@ function perbesar(zoomnya) {
 function onLocationFound(e) {
 	var radius = e.accuracy / 2;
 	L.marker(e.latlng).addTo(map)
-		.bindPopup("Anda berada pada radius " + radius + " meter dari sekitar titik ini").openPopup();
+		.bindPopup("Anda berada pada radius " + radius + " meter di sekitar titik ini").openPopup();
 	L.circle(e.latlng, radius).addTo(map);
 	map.setView(e.latlng,16);
 	
@@ -205,7 +223,6 @@ function onLocationError(e) {
 
 function locateMe(){
 	map.locate({setView: true});
-	
 };
 
 

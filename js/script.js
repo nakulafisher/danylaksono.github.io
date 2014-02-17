@@ -6,7 +6,7 @@ var map;
 		
 	function initmap() {
 		
-		map = new L.Map('map', {
+		this.map = new L.Map('map', {
 			minZoom: 12, 
 			maxZoom: 20
 		});
@@ -82,15 +82,49 @@ var map;
 		map.setView(latlngmap, (zoomap-1)); //reset the view 
 		
 		L.control.layers(baseMaps, markers).addTo(map);
+		
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+		
+// ------------------------------
+//        Informasi
+// ------------------------------
+
+		
+	$(document).ready(function() {
+		$(lestari).click(function(){
+			$("#info").fadeIn('slow').html('<h5><i>Gedung Lestari Univ. 45 Makassar</i></h5>'+
+						'</br> <h6>Untuk menuju gedung Lestari 45, Anda dapat menggunakan kendaraan pribadi atau kendaraan umum</h6>');
+		});
+		
+		$(rumah).click(function(){
+				$("#info").fadeIn('slow').html('<h5><i>Rumah Mempelai Perempuan</i></h5>');
+			});
+			
+		$(bandara).click(function(){
+				$("#info").fadeIn('slow').html('<h5><i>Bandara Sultan Hassanuddin</i></h5>'+
+						'<h5> Klik pada tombol berikut untuk menampilkan informasi rute perjalanan dari dan ke Bandara Sultan Hassanuddin </h5>'+
+						'<button class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-sm">Info Tiket</button>');
+			});
+	
+		
+		
+		
+	
+	});
 	
 	
-	//$('#viewAkad').click(function() {
-	//	map.setView(rumah.getLatLng(),10);
-	//});
+	
+		
 	
 	
 	/*
-	// routing function
+	
+// ------------------------------
+//        Routing Functions
+// ------------------------------
+
+	
 	function addScript(url) {
 		var script = document.createElement('script');
 		script.type="text/javascript";
@@ -112,16 +146,15 @@ var map;
 		}).addTo(map);
 		route.bringToFront();
 	}
-	
-	
-	
+		
 	fromMarker = lestari;
 	toMarker= rumah;
 	alert(toMarker.getLatLng().lng);
 	addScript('http://routes.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/api/0.3/' + fromMarker.getLatLng().lat + ',' + fromMarker.getLatLng().lng + ',' + toMarker.getLatLng().lat + ',' + toMarker.getLatLng().lng + '/car.js?callback=getRoute'); */
 	
 	}
-
+	
+	
 
 // ------------------------------
 //        Animate scroll
@@ -141,6 +174,7 @@ $(document).ready(function() {
 	$('body').scrollspy({'offset':50});
 });
 
+
 	
 // ------------------------------
 //        Map Functions
@@ -155,90 +189,32 @@ function perbesar(zoomnya) {
 }
 
 	
-	
-// ------------------------------
-//        Buku Tamu
-// ------------------------------
-/*
-
-function ConvertFormToJSON(form){
-	var array = jQuery(form).serializeArray();
-	var json = {};
-
-	jQuery.each(array, function() {
-		json[this.name] = this.value || '';
-	});
-
-	return json;
+//geolocation
+function onLocationFound(e) {
+	var radius = e.accuracy / 2;
+	L.marker(e.latlng).addTo(map)
+		.bindPopup("You are within " + radius + " meters from this point").openPopup();
+	L.circle(e.latlng, radius).addTo(map);
 }
 
+function onLocationError(e) {
+	alert(e.message);
+}
 
+function locateMe(){
+	map.locate({setView: true});
+	alert('Pencarian lokasi gagal. Aktifkan GPS anda atau tunggu beberapa saat lagi');
+};
+
+
+function utiket() {
+  alert('poi');
+  $('#myModal').modal();
+}
 
 	
-jQuery(document).on('ready', function() {
-		//alert('dipanggil');
-		jQuery('#bukuTamuForm').bind('submit', function(event){
-			event.preventDefault();
-			
-			
-			var nama       = $('input[id=inputNama]').val();
-			var alamat       = $('input[id=inputAlamat]').val();
-			var pesan       = $('textarea[id=inputPesan]').val();
-			
-			post_data = {'nama':nama, 'alamat':alamat, 'pesan':pesan};
-			
-			var form = this;
-			json = ConvertFormToJSON(form);
-			
-			$( ".panel-body" ).prepend( "<h4>"+ this['inputNama'].value+"</h4>" );
-			
-			$.post('bukutamu.php', post_data, function(data){ 
-			
-				alert("sukses");
-				$('#bukuTamuForm input').val(''); 
-				$('#bukuTamuForm textarea').val('');
-			
-			}).fail(function(err) {  
-                alert("gagal");
-				console.log(err);
-            });			
-			
-			/*
-			$.ajax({
-            type: "POST",
-            url: "encode.php",
-            data: json,
-            dataType: "json"
-        }).always(function() { 
-		
-        var tbody = jQuery('.panel-body > tbody');
-		
-
-			//var tbody = jQuery('#isiBuku > tbody');
-			//tbody.append('<h2> ditambah lo</h2>');
-			//$( ".panel-body" ).prepend( "<h4>"+ this['inputNama'].value+"</h4>" );
-		
-		
-		tbody.prepend( "<h4>"+ form['inputNama'].value+"</h4>" );
-			
-			
-			
-		}).fail(function() { 
-            alert("Failed to add to-do"); 
-			console.log(data);
-        });
-		console.log(post_data);
-		return false;
-		});
-});
-		*/
 	
-	
-	
-
-
-
-
-
-
-
+		
+		
+		
+		

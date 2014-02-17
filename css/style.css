@@ -491,6 +491,17 @@ body {
 #tombolPanel .btn {
    padding:10px 0;
 }
+
+#info {
+	font-family: Ubuntu;
+	color:#707070;
+	word-wrap: break-word;
+}
+
+#utiket{
+    height: 100%;
+}
+
   
 /*-------------------------------------------
 				Bukutamu 

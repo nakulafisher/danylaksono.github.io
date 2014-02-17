@@ -105,7 +105,7 @@
 						<hr>
 						</div>
 						<div class="col-md-2">
-						<br><br><br><i>dengan</i>
+						<br><br><i>dengan</i><br>
 						</div>
 						<div class="col-md-5">
 						<hr>
@@ -287,12 +287,22 @@
 						<button onclick="perbesar(rumah)"  type="button" class="btn btn-info btn-md btn-block">Lokasi Akad</button>
 						<button onclick="perbesar(lestari)" type="button" class="btn btn-info btn-md btn-block">Lokasi Resepsi</button>
 						<button onclick="perbesar(titik)" type="button" class="btn btn-warning btn-md btn-block">Reset Tampilan</button>
+						<button onclick="locateMe()" type="button" class="btn btn-success btn-md btn-block">Lokasi Saya</button>
 						
+						<div id="modalTiket" class="modal fade bs-example-modal-sm autoModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-lg">
+							<div class="modal-content">
+							  <iframe width="520" height="708" frameborder="0" scrolling="yes" src="http://www.utiket.com/api2/price-calender.asp?lng=indonesia&dep=JOG&dest=UPG&domestic=indonesia&cur=IDR&pid="></iframe>
+							</div>
+						  </div>
+						</div>
 						
 					</div>
 					<div class="panel-heading"><i class="fa fa-info-circle"></i> &nbsp;Informasi</div>
 					<div class="panel-body">
-					
+						<div id="info">
+							<h4> <i></br> Klik pada marker untuk memunculkan informasi </i> </h4> 
+						</div>
 					
 					
 					</div>
@@ -312,46 +322,6 @@
 			  <h4>Besar harapan kami kiranya Bapak/Ibu berkenan menghadiri acara pernikahan kami. Mempelai berdua dan keluarga memohon doa restu kepada para undangan agar kami dapat membentuk keluarga yang sakinah, serta mampu mengarungi bahtera kehidupan di bawah naungan ridho-Nya. </h4></br></br>
 			  <h4> Kunjungi juga halaman Facebook kami: </br></br> <a class="btn btn-primary btn-md" role="button" href="https://www.facebook.com/events/197597077118122/"><i class="fa fa-heart-o"></i>&nbsp;Dany & Rindi's Wedding&nbsp;<i class="fa fa-heart-o"></i></a></h4>
 			</div>
-			
-			<!--div class="row well">
-				<div class="col-md-6">
-						<form id="bukuTamuForm" class="form-horizontal" role="form" > 
-						  <div class="form-group">
-							<label class="col-sm-2 control-label" style="text-align:right">Nama</label>
-							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="inputNama" placeholder="Nama" required>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label class="col-sm-2 control-label" style="text-align:right">Alamat</label>
-							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="inputAlamat" placeholder="Alamat" required>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label class="col-sm-2 control-label" style="text-align:right">Pesan</label>
-							<div class="col-sm-10">
-							  <textarea type="message" class="form-control" placeholder="Pesan Anda" id="inputPesan"></textarea>
-							  </div>
-						  </div>
-						  <div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-							  <button type="submit" class="btn btn-primary" id="submitPesan">Kirim Pesan</button>
-							</div>
-						  </div>
-						</form>
-				</div>	
-				<div class="col-md-6">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-					<b><i>Buku Tamu</b></i>
-					</div>
-					<div class="panel-body" id="isiBuku">
-						<h2> pesan pertama </h2>
-					</div>
-				</div>
-				</div>
-			</div-->
 		</div>
 	</section>
 	
@@ -361,12 +331,10 @@
 		</div>
 	</section>
 	
-    <!-- javascript ipun
+    <!-- javascriptnyo
     ================================================== -->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>     
 	<script src="js/jquery.scrollTo.min.js"></script>
 	
-	
-
-  </body>
+	</body>
 </html>

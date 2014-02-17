@@ -90,22 +90,18 @@ var map;
 // ------------------------------
 	
 	
-	
-	
-	$.getJSON("geojson/bandaraRumah.geoJSON", function (rumah) {
-		L.geoJson(rumah).addTo(map);
-	});
-	
-	
-	
 	var htmlLestari = [
-		'<h5>Terdapat dua alternatif rute yang dapat anda gunakan untuk menuju Gedung Lestari 45 dari Bandara:</h5></br> ',
-		'<label class="checkbox-inline"> <input type="checkbox" id="rute1" value="option1"> Rute 1 </label>',
-		'<label class="checkbox-inline"> <input type="checkbox" id="rute2" value="option2"> Rute 2 </label>'
+		'<h5>Terdapat dua alternatif rute yang dapat anda gunakan untuk menuju Gedung Lestari 45 dari ',
+		'Bandara Sultan Hassanuddin Makassar:</h5></br> ',
+		'<label class="checkbox-inline"> <input type="checkbox" id="rute1" onchange="checkRuteLestari1(this)""> Rute 1 </label>',
+		'<label class="checkbox-inline"> <input type="checkbox" id="rute2" onchange="checkRuteLestari2(this)"> Rute 2 </label>'
 		].join('');
-	
-	
-	
+		
+	var htmlRumah = [
+		'<h5>Dari bandara, anda dapat menggunakan kendaraan umum atau pribadi menuju Perumahan BTP (Bumi Tamalanrea Permai),',
+		' kemudian  mengikuti jalur yang ditunjukkan rute berikut:</h5> </br>',
+		'<label class="checkbox-inline"> <input type="checkbox" id="rute3" onchange="checkRuteRumah(this)"> Rute ke Lokasi </label>'
+		].join('');
 	
 	$(document).ready(function() {
 		$(lestari).click(function(){
@@ -113,7 +109,7 @@ var map;
 		});
 		
 		$(rumah).click(function(){
-			$("#info").fadeIn('slow').html('<h5><i>Rumah Mempelai Perempuan</i></h5>');
+			$("#info").fadeIn('slow').html(htmlRumah);
 		});
 			
 		$(bandara).click(function(){
@@ -123,12 +119,122 @@ var map;
 		});
 	});
 
-	}	
+	
+	// getJSONs
+	$.getJSON("geojson/bandaraRumah.geoJSON", function (arg) {
+		jsonRumah = L.geoJson(arg);
+		return true;
+	});
+	$.getJSON("geojson/bandaraLestari1.geoJSON", function (arg) {
+		jsonLestari1 = L.geoJson(arg);
+		return true;
+	});
+	$.getJSON("geojson/bandaraLestari2.geoJSON", function (arg) {
+		jsonLestari2 = L.geoJson(arg);
+		return true;
+	});
+	
+}	
+
+
+// ------------------------------
+//       Polyline route
+// ------------------------------
+
+// Lestari-Rute 1
+function checkRuteLestari1 () {
+  if($(this['rute1']).prop('checked')) {
+	map.addLayer(jsonLestari1);
+} else {
+	map.removeLayer(jsonLestari1);
+}
+};
+
+// Lestari-Rute 2
+function checkRuteLestari2 () {
+  if($(this['rute2']).prop('checked')) {
+	map.addLayer(jsonLestari2);
+} else {
+	map.removeLayer(jsonLestari2);
+}
+};
+
+// Rute Rumah
+function checkRuteRumah () {
+  if($(this['rute3']).prop('checked')) {
+	map.addLayer(jsonRumah);
+} else {
+	map.removeLayer(jsonRumah);
+}
+};
+
+// ------------------------------
+//        Animate scroll
+// ------------------------------
+
+$(document).ready(function() {
+	$('.nav a').click('click', function() {
+		var thehref = $(this).attr('href');
+		if ( thehref == '#home' ) {
+			$.scrollTo( 0, 900 );
+		} else {
+			$.scrollTo( thehref , 900, {offset:-45} );
+		}
+		return false;
+	});
+	
+	$('html, body').scrollspy({'offset':50});
+
+	});
+
+
+	
+// ------------------------------
+//        Map Functions
+// ------------------------------
+	
+function perbesar(zoomnya) {
+	 if (zoomnya == titik ) {
+		map.fitBounds(zoomnya.getBounds())
+	} else {
+		map.setView(zoomnya.getLatLng(),18);
+	}
+}
+
+	
+// ------------------------------
+//        Geolocation
+// ------------------------------
+function onLocationFound(e) {
+	var radius = e.accuracy / 2;
+	L.marker(e.latlng).addTo(map)
+		.bindPopup("Anda berada pada radius " + radius + " meter di sekitar titik ini").openPopup();
+	L.circle(e.latlng, radius).addTo(map);
+	map.setView(e.latlng,16);
+	
+}
+
+function onLocationError(e) {
+	alert(e.message);
+}
+
+function locateMe(){
+	map.locate({setView: true});
+};
+
+
+function utiket() {
+  alert('poi');
+  $('#myModal').modal();
+}
+
+
 // ------------------------------
 //        Routing Functions
 // ------------------------------
 
-	// for some (unknown) reasons, the cloudmade routing function on one of the location failed, so I'll just skip this one
+	// for some unknown reasons (possibly OSM data's completeness), the cloudmade routing function on 
+	// one of the location failed, so I'll just skip this one
 	/*
 	function addScript(url) {
 		var script = document.createElement('script');
@@ -156,84 +262,3 @@ var map;
 	toMarker= lestari;
 	addScript('http://routes.cloudmade.com/d4f57307605347aeb36aecf0f44dde8a/api/0.3/' + fromMarker.getLatLng().lat + ',' + fromMarker.getLatLng().lng + ',' + toMarker.getLatLng().lat + ',' + toMarker.getLatLng().lng + '/car.js?callback=getRoute'); 
 	*/
-	
-	
-// ------------------------------
-//       Polyline route
-// ------------------------------
-
-	//pointsRumah, pointsLestari 
-
-	
-	/*routeRumah= new L.Polyline(points, {
-			color: "#ff7800",
-			weight: 4,
-			opacity: 0.5,
-			smoothFactor: 1
-		});
-		
-	*/
-
-// ------------------------------
-//        Animate scroll
-// ------------------------------
-
-$(document).ready(function() {
-	$('.nav a').click('click', function() {
-		var thehref = $(this).attr('href');
-		if ( thehref == '#home' ) {
-			$.scrollTo( 0, 900 );
-		} else {
-			$.scrollTo( thehref , 900, {offset:-45} );
-		}
-		return false;
-	});
-	
-	$('body').scrollspy({'offset':50});
-});
-
-
-	
-// ------------------------------
-//        Map Functions
-// ------------------------------
-	
-function perbesar(zoomnya) {
-	 if (zoomnya == titik ) {
-		map.fitBounds(zoomnya.getBounds())
-	} else {
-		map.setView(zoomnya.getLatLng(),18);
-	}
-}
-
-	
-//geolocation
-function onLocationFound(e) {
-	var radius = e.accuracy / 2;
-	L.marker(e.latlng).addTo(map)
-		.bindPopup("Anda berada pada radius " + radius + " meter di sekitar titik ini").openPopup();
-	L.circle(e.latlng, radius).addTo(map);
-	map.setView(e.latlng,16);
-	
-}
-
-function onLocationError(e) {
-	alert(e.message);
-}
-
-function locateMe(){
-	map.locate({setView: true});
-};
-
-
-function utiket() {
-  alert('poi');
-  $('#myModal').modal();
-}
-
-	
-	
-		
-		
-		
-		

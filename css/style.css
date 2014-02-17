@@ -418,13 +418,11 @@ body {
 	padding-top:30px;
 	padding-bottom:50px;
 }
-@media (max-width: 640px) {
-#undangan .hjstories{
-	height:300px;
-	width:100%;
-  }
-}
 
+#stage_jbeeb_3 {
+	margin-left:auto !important;
+	margin-right:auto !important;
+	}
 
 
 
@@ -548,7 +546,12 @@ body {
 #bukutamu .isiBuku h2 {
   color: black;
 }
-
+@media (max-width: 250px) {
+#minions {
+    white-space: normal;
+    width: 100px;
+}
+}
 /*-------------------------------------------
 				Footer 
   ------------------------------------------- */				
@@ -560,6 +563,11 @@ body {
 	width:auto;
 	height:2em;
 }
+@media (max-width: 640px) {
+#footer {
+    height: 1.5em;
+}
+}
 
  #footer h6{
 	vertical-align: center;
@@ -570,7 +578,11 @@ body {
 	height:auto;
 	margin-top:0;
 }
-
+@media (max-width: 640px) {
+#footer h6{
+    font-size: 0.8em;
+}
+}
 
 /* made with love by Dany Laksono - 2014 */
 

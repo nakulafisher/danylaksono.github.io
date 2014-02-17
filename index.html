@@ -13,13 +13,10 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
 	
-	
 	<!-- CSSes -->
     <link href="css/style.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css " rel="stylesheet" />
-	
-	
 	
 	<!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
@@ -253,22 +250,32 @@
 				</div>
 			</div>
 			<div class="row" style="margin: 0 -15px">
-				<div class="col-md-12 hidden-xs"> <!--hide this in smaller device, too lazy to create a responsive one-->
+				<div class="col-md-12">
 					<div class="countdon">
 						<script src="js/countdown.js"></script>
 						<h1> Hitung mundur: </br> </br> </h1>
-						<script> <!--countdown by Mike Gieson -->
-						var hitungmundur = new Countdown({
-										year: 2014, 
-										month:3,
-										day:22,
-										hour: 9,
-										ampm: "am",
-										width:350, 
-										height:60,  
-										rangeHi:"month",
-										style:"flip"
-										});
+						<script>
+						function countdon(lbr,tgg) {
+							var hitungmundur = 	new Countdown({
+								year: 2014, 
+								month:3,
+								day:22,
+								hour: 9,
+								ampm: "am",
+								width:lbr, 
+								height:tgg,  
+								rangeHi:"month",
+								style:"flip"
+								});
+						}
+						var width = $(window).width();
+						if (width < 480) {
+						countdon(200,40);
+						}
+						else {
+						countdon(350,60);
+						}
+						
 						</script>
 					</div>
 				</div>
@@ -323,7 +330,7 @@
 			<div class="jumbotron">
 			  <h2>"Wahai sekalian pemuda, siapa diantara kalian yang telah mampu untuk menikah maka hendaknya ia menikah, karena menikah dapat lebih menundukkan pandangan (kalian), dan lebih menjaga kehormatan" (Muttafaqqun 'Alaihi)</h2></br>
 			  <h4>Besar harapan kami kiranya Bapak/Ibu berkenan menghadiri acara pernikahan kami. Mempelai berdua dan keluarga memohon doa restu kepada para undangan agar kami dapat membentuk keluarga yang sakinah, serta mampu mengarungi bahtera kehidupan di bawah naungan ridho-Nya. </h4></br></br>
-			  <h4> Kunjungi juga halaman Facebook kami: </br></br> <a class="btn btn-primary btn-md" role="button" href="https://www.facebook.com/events/197597077118122/"><i class="fa fa-heart-o"></i>&nbsp;Dany & Rindi's Wedding&nbsp;<i class="fa fa-heart-o"></i></a></h4>
+			  <h4> Kunjungi juga halaman Facebook kami: </br></br> <a id="minions" class="btn btn-primary btn-md" role="button" href="https://www.facebook.com/events/197597077118122/"><i class="fa fa-heart-o"></i>&nbsp;Dany & Rindi's Wedding&nbsp;<i class="fa fa-heart-o"></i></a></h4>
 			</div>
 		</div>
 	</section>

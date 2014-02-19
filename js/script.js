@@ -29,20 +29,20 @@ var map;
 		
 		var rumahIcon = L.icon({
 			iconUrl: 'img/home.png',
-			popupAnchor:  [15, 20],
-			iconAnchor:   [15, 40]
+			popupAnchor:  [0, 0],
+			iconAnchor:   [15, 15]
 		});
 		
 		var lestariIcon = L.icon({
 			iconUrl: 'img/apartment.png',
-			popupAnchor:  [15, 20],
-			iconAnchor:   [15, 40]
+			popupAnchor:  [0, 0],
+			iconAnchor:   [15, 15]
 		});
 		
 		var bandaraIcon = L.icon({
 			iconUrl: 'img/airport.png',
-			popupAnchor:  [15, 20],
-			iconAnchor:   [15, 40]
+			popupAnchor:  [0, 0],
+			iconAnchor:   [15, 15]
 		});
 		
 		

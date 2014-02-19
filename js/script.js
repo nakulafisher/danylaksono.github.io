@@ -124,7 +124,7 @@ var map;
 
 	
 	// getJSONs
-	$.getJSON("geojson/bandaraRumah.geoJSON", function (arg) {
+	$.getJSON("bandaraRumah.geoJSON", function (arg) {
 		jsonRumah = L.geoJson(arg);
 		return true;
 	});

@@ -124,15 +124,15 @@ var map;
 
 	
 	// getJSONs
-	$.getJSON("bandaraRumah.js", function (arg) {
+	$.getJSON("geojson/bandaraRumah.js", function (arg) {
 		jsonRumah = L.geoJson(arg);
 		return true;
 	});
-	$.getJSON("./geojson/bandaraLestari1.geoJSON", function (arg) {
+	$.getJSON("geojson/bandaraLestari1.js", function (arg) {
 		jsonLestari1 = L.geoJson(arg);
 		return true;
 	});
-	$.getJSON("./geojson/bandaraLestari2.geoJSON", function (arg) {
+	$.getJSON("geojson/bandaraLestari2.js", function (arg) {
 		jsonLestari2 = L.geoJson(arg);
 		return true;
 	});

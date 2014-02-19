@@ -9,7 +9,6 @@
 */
 
 
-
 /*-------------------------------------------
 				Imports
   ------------------------------------------- */
@@ -418,13 +417,13 @@ body {
 	padding-top:30px;
 	padding-bottom:50px;
 }
-
+@media (max-width: 480px) {
 #stage_jbeeb_3 {
 	margin-left:auto !important;
 	margin-right:auto !important;
 	font-size:0.8em !important;
 }
-
+}
 
 
 /*-------------------------------------------

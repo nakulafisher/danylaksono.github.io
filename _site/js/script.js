@@ -128,11 +128,11 @@ var map;
 		jsonRumah = L.geoJson(arg);
 		return true;
 	});
-	$.getJSON("geojson/bandaraLestari1.geoJSON", function (arg) {
+	$.getJSON("./geojson/bandaraLestari1.geoJSON", function (arg) {
 		jsonLestari1 = L.geoJson(arg);
 		return true;
 	});
-	$.getJSON("geojson/bandaraLestari2.geoJSON", function (arg) {
+	$.getJSON("./geojson/bandaraLestari2.geoJSON", function (arg) {
 		jsonLestari2 = L.geoJson(arg);
 		return true;
 	});
@@ -188,7 +188,7 @@ $(document).ready(function() {
 	
 	$('html, body').scrollspy({'offset':50});
 
-	});
+});
 
 
 	

@@ -120,19 +120,30 @@ var map;
 					'<h5> Klik pada tombol berikut untuk menampilkan informasi rute perjalanan dari dan ke Bandara Sultan Hassanuddin </h5>'+
 					'<button class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-sm">Info Tiket</button>');
 		});
+	
+		// fix navbar in chrome
+		$(function() {
+		   $("li").click(function() {
+			  // remove classes from all
+			  $("li").removeClass("active");
+			  // add class to the one we clicked
+			  $(this).addClass("active");
+		   });
+		});
+	
 	});
 
 	
 	// getJSONs
-	$.getJSON("bandaraRumah.js", function (arg) {
+	$.getJSON("geojson/bandaraRumah.js", function (arg) {
 		jsonRumah = L.geoJson(arg);
 		return true;
 	});
-	$.getJSON("./geojson/bandaraLestari1.geoJSON", function (arg) {
+	$.getJSON("geojson/bandaraLestari1.js", function (arg) {
 		jsonLestari1 = L.geoJson(arg);
 		return true;
 	});
-	$.getJSON("./geojson/bandaraLestari2.geoJSON", function (arg) {
+	$.getJSON("geojson/bandaraLestari2.js", function (arg) {
 		jsonLestari2 = L.geoJson(arg);
 		return true;
 	});
